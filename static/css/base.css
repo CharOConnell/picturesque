@@ -1,0 +1,63 @@
+html {
+    height: 100%;
+}
+
+body {
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#background-image-home {
+    background: url('/media/homepage_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 72px);
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.shop-now-button,
+.btn-second:hover,
+.btn-second:active,
+.btn-second:focus {
+    background: white;
+    color: #17a2b8;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-second,
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #17a2b8;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* --------------- Media Queries ----- */
+/* Larger containers for xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+.header-container {
+    padding-top: 72px;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
