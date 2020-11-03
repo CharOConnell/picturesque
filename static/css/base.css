@@ -52,6 +52,11 @@ body {
     background-color: #003333;
 }
 
+.image-fluid {
+    width: auto;
+    max-height: 270px;
+}
+
 /* --------------- Media Queries ----- */
 /* Larger containers for xl screens */
 @media (min-width: 1200px) {
