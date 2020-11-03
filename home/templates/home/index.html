@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
+{% block content %}
+    <div class="container-fluid" id="background-image-home">
         <div class="row">
-            <div class="col">
+            <div id="browse" class="d-flex col justify-content-center align-self-end">
+                <a href="" class="shop-now-button btn btn-lg py-3">browse collections now</a>
             </div>
         </div>
     </div>
-{% endblock %}
 
-{% block content %}
-    <div class="container-fluid" id="background-image-home">
-        <div class="row h-100">
-            <div class="col my-auto">
-                <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+    <div class="container-fluid" id="about">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-uppercase text-white text-center">About</h2>
+                <hr>
             </div>
         </div>
     </div>

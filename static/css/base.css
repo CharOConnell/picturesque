@@ -4,13 +4,19 @@ html {
 
 body {
     color: #fff;
+    background-color: #003333;
     font-family: 'Ubuntu', sans-serif;
 }
 
 #background-image-home {
     background: url('/media/homepage_background.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 72px);
+    height: 100vh;
+}
+
+#browse {
+    position: absolute;
+    bottom: 0.5rem;
 }
 
 /* from Bulma */
@@ -40,6 +46,11 @@ body {
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+hr {
+    border: 1px solid #17a2b8;
+    width: 25%;
 }
 
 /* --------------- Media Queries ----- */
