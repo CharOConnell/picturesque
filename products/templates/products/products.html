@@ -2,18 +2,47 @@
 {% load static %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container-fluid mt-5 pt-5">
         <div class="row">
             <div class="col">
-                <h2 class="text-uppercase text-white text-center">Products</h2>
-                <hr>
+                <h3 class="text-uppercase text-white text-center mb-1 mt-3">Products</h3>
+                <hr class="w-25 bg-info text-info  mt-1 mb-2">
             </div>
-        </div>
-    </div>
-    <div class="container">
+        </div>        
         <div class="row">
-            <div class="col">
-                {{ products }}
+            <div class="product-container mx-3">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-1">
+                            <div class="card h-100 bg-info-dark py-1 border-0">
+                                {% if product.image %}
+                                    <a href="">
+                                        <img src="/media/{{product.image }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                    </a>
+                                {% endif %}
+                                <div class="card-body lead mt-1 py-0">
+                                    <p class="mb-0">{{ product.name }}</p>
+                                </div>
+                                <div class="card-footer bg-info-dark border-0 py-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="mb-0 text-left font-weight-bold">From £{{ product.price }}</p>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <hr class="bg-info w-50">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

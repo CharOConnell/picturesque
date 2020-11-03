@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    color: #fff;
+    color: #17a2b8;
     background-color: #003333;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -46,11 +46,6 @@ body {
     color: white;
     text-transform: uppercase;
     font-weight: bold;
-}
-
-hr {
-    border: 1px solid #17a2b8;
-    width: 25%;
 }
 
 .bg-info-dark {
