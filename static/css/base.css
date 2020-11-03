@@ -53,6 +53,10 @@ hr {
     width: 25%;
 }
 
+.bg-info-dark {
+    background-color: #003333;
+}
+
 /* --------------- Media Queries ----- */
 /* Larger containers for xl screens */
 @media (min-width: 1200px) {
