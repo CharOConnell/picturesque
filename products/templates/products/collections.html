@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid mt-5 pt-5">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-uppercase text-white text-center mb-1 mt-4">Collections</h3>
+                <hr class="w-25 bg-info text-info  mt-1 mb-2">
+            </div>
+        </div>        
+        <div class="row">
+            <div class="product-container mx-3">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">                
+                    {% for sku in skus %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 my-1">
+                            <div class="card h-100 bg-info-dark py-1 border-0 align-items-center">
+                                {% for product in products %}
+                                    {% if product.sku == sku %}
+                                        {% if product.image %}
+                                            <a href="">
+                                                <img src="/media/{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
+                                            </a>
+                                        {% else %}
+                                            <a href="">
+                                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top image-fluid">
+                                            </a>
+                                        {% endif %}
+                                        <div class="card-body lead d-flex align-items-end mt-1 py-0">
+                                            {% if forloop.counter == 285 %}
+                                                <p class="mb-0 text-uppercase">All collections</p>
+                                            {% else %}
+                                                <p class="mb-0">{{ product.category|upper }}</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="card-footer bg-info-dark border-0 py-0">
+                                            <div class="row">
+                                                <hr class="bg-info w-50">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
