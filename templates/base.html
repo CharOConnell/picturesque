@@ -66,6 +66,19 @@
                             <li class="nav-item">
                                 <a class="nav-link my-2 text-white text-uppercase" href="{% url 'collections' %}">Collections</a>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle my-2 text-white text-uppercase" id="collection-options" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Collections
+                                </a>
+                                <div class="dropdown-menu border-0 text-info-dark" aria-labelledby="collection-options">
+                                    <a href="{% url 'products' %}?category=architecture" class="dropdown-item">All Photos</a>
+                                    <a href="{% url 'products' %}?category=architecture" class="dropdown-item">Architecture</a>
+                                    <a href="{% url 'products' %}?category=castles" class="dropdown-item">Castles</a>
+                                    <a href="{% url 'products' %}?category=vehicles" class="dropdown-item">Vehicles</a>
+                                    <a href="{% url 'products' %}?category=landscapes" class="dropdown-item">Landscapes</a>
+                                    <a href="{% url 'products' %}?category=nature" class="dropdown-item">Nature</a>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link my-2 text-white text-uppercase" href="#">Contact</a>
                             </li>

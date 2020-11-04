@@ -59,6 +59,10 @@ body {
     background-color: #003333;
 }
 
+.text-info-dark {
+    color: #003333;
+}
+
 .image-fluid {
     width: auto;
     max-height: 270px;
