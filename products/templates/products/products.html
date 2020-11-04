@@ -17,11 +17,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-1">
                             <div class="card h-100 bg-info-dark py-1 border-0 align-items-center">
                                 {% if product.image %}
-                                    <a href="">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <img src="/media/{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
                                     </a>
                                 {% else %}
-                                    <a href="">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top image-fluid">
                                     </a>
                                 {% endif %}
@@ -33,7 +33,6 @@
                                         <div class="col">
                                             <p class="mb-0 text-left font-weight-bold">From £{{ product.price }}</p>
                                         </div>
-                                        
                                     </div>
                                     <div class="row">
                                         <hr class="bg-info w-50">

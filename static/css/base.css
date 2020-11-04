@@ -20,6 +20,10 @@ body {
     bottom: 0.5rem;
 }
 
+.product-spec {
+    min-height: 82vh;
+}
+
 /* from Bulma 
 .icon {
     align-items: center;
