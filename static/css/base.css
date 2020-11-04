@@ -55,6 +55,19 @@ body {
     font-weight: bold;
 }
 
+.badge {
+    font-weight: 400;
+    background: #17a2b8;
+    color: white;
+}
+
+.badge:hover,
+.badge:active,
+.badge:focus {
+    background: white;
+    color: #003333;
+}
+
 .bg-info-dark {
     background-color: #003333;
 }
