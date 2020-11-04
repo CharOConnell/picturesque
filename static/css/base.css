@@ -55,6 +55,7 @@ body {
 .image-fluid {
     width: auto;
     max-height: 270px;
+    max-width: 100%;
 }
 
 /* --------------- Media Queries ----- */
