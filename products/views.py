@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category
 
 
 def all_products(request):
@@ -10,8 +10,14 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    categories = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -24,6 +30,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'products/products.html', context)
@@ -52,14 +59,14 @@ def collections(request):
         'na090-028',
     ]
 
-    links = [{'id': 285, 'link': 'products'}]
-    """
-        {'id': 17, 'link': 'architecture'},
-        {'id': 82, 'link': 'castles'},
-        {'id': 129, 'link': 'vehicles'},
-        {'id': 176, 'link': 'landscapes'},
-        {'id': 267, 'link': 'nature'}
-    ]"""
+    links = [
+        {'id': 285, 'link': 'products', 'cat': ''},
+        {'id': 17, 'link': 'products', 'cat': '?category=architecture'},
+        {'id': 82, 'link': 'products', 'cat': '?category=castles'},
+        {'id': 129, 'link': 'products', 'cat': '?category=vehicles'},
+        {'id': 176, 'link': 'products', 'cat': '?category=landscapes'},
+        {'id': 267, 'link': 'products', 'cat': '?category=nature'}
+    ]
 
     context = {
         'products': products,

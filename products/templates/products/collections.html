@@ -18,11 +18,10 @@
                             <div class="card h-100 bg-info-dark py-1 border-0 align-items-center">
                                 {% for product in products %}
                                     {% if product.sku == sku %}
-                                    {{ forloop.counter }}{{ product.id }}
                                         {% for link in links %}
                                             {% if link.id == product.id %}
                                                 {% if product.image %}
-                                                    <a href="{% url link.link %}">
+                                                    <a href="{% url link.link %}{{link.cat}}">
                                                         <img src="/media/{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
                                                     </a>
                                                 {% else %}
@@ -30,7 +29,7 @@
                                                         <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top image-fluid">
                                                     </a>
                                                 {% endif %}
-                                                {% endif %}
+                                            {% endif %}
                                         {% endfor %}
                                                 <div class="card-body lead d-flex align-items-end mt-1 py-0">
                                                     {% if forloop.counter == 285 %}
