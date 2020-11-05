@@ -6,14 +6,58 @@
         <div class="row">
             <div class="col">
                 <h3 class="text-uppercase text-white text-center mb-1 mt-4">Shopping Bag</h3>
-                <hr class="w-25 bg-info text-info  mt-1 mb-2">
+                <hr class="w-25 bg-info text-info mt-1 mb-2">
             </div>
         </div>
         <div class="row mt-3">
             <div class="col">
                 {% if bag_items %}
                     <div class="table-responsive rounded">
-                        {{ bag_items }}
+                        <table class="table table-sm table-borderless">
+                            <thead class="text-white">
+                                <tr>
+                                    <th scope="col">Product Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in bag_items %}
+                                <tr class="text-info">
+                                    <td class="py-3 w-25 pl-0">
+                                        <img src="/media/{{ item.product.image }}" class="img-fluid rounded">
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">£{{ item.product.price }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">{{ item.quantity }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">£{{ item.product.price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr class="text-white">
+                                <td colspan="5" class="pt-5 text-right">
+                                    <h6>Subtotal: £{{ total|floatformat:2 }}</h6>
+                                    <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                                    {% if free_delivery_delta > 0 %}
+                                        <p class="mb-1 text-warning">
+                                            Spend <strong>£{{ free_delivery_delta }}</strong> more to get <strong>FREE</strong> delivery!
+                                        </p>
+                                    {% endif %}
+                                    <hr class="w-25 bg-info text-info float-right mt-1 mb-2">
+                                    <h4 class="mt-4"><strong>Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 {% else %}
                     <p class="lead mb-5 d-flex justify-content-center justify-content-lg-start">Your bag is empty.</p>
