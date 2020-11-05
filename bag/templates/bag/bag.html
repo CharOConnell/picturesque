@@ -12,9 +12,11 @@
         <div class="row mt-3">
             <div class="col">
                 {% if bag_items %}
-                    <div class="table-responsive rounded"></div>
+                    <div class="table-responsive rounded">
+                        {{ bag_items }}
+                    </div>
                 {% else %}
-                    <p class="lead mb-5">Your bag is empty.</p>
+                    <p class="lead mb-5 d-flex justify-content-center justify-content-lg-start">Your bag is empty.</p>
                     <a href="{% url 'collections' %}" class="btn shop-now-button btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
