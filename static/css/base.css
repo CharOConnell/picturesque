@@ -21,7 +21,7 @@ body {
 }
 
 .page {
-    min-height: 90vh;
+    min-height: calc(100vh - 127px);
 }
 
 /* from Bulma */
