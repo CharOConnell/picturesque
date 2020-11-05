@@ -20,11 +20,11 @@ body {
     bottom: 0.5rem;
 }
 
-.product-spec {
-    min-height: 82vh;
+.page {
+    min-height: 90vh;
 }
 
-/* from Bulma 
+/* from Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -32,7 +32,6 @@ body {
     height: 1.5rem;
     width: 1.5rem;
 }
-*/
 
 .shop-now-button,
 .btn-second:hover,
