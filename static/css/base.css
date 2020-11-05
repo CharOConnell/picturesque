@@ -52,6 +52,7 @@ body {
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 80%;
 }
 
 .badge {
@@ -91,6 +92,12 @@ body {
     width: auto;
     max-height: 270px;
     max-width: 100%;
+}
+
+input.form-control:hover,
+input.form-control:active,
+input.form-control:focus {
+    background-color: #003333;
 }
 
 /* Media Queries */
