@@ -10,10 +10,22 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    prices = {
+        'xs': 7.99,
+        's': 10.99,
+        'm': 12.99,
+        'l': 15.99,
+        'xl': 18.99,
+        'xxl': 20.99,
+    }
 
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
         for size, quantity in item_data['items_by_size'].items():
+            new_price = Decimal(prices[size])
+            print(product.price, 'original')
+            product.price = new_price
+            print(product.price, 'ammended')
             total += quantity * product.price
             product_count += quantity
             bag_items.append({

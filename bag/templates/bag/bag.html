@@ -35,13 +35,13 @@
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">£{{ item.product.price }}</p>
+                                        <p class="my-0">£{{ item.product.price|floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">{{ item.quantity }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">£{{ item.product.price }}</p>
+                                        <p class="my-0">£{{ item.product.price|floatformat:2 }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -51,7 +51,7 @@
                                     <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-warning">
-                                            Spend <strong>£{{ free_delivery_delta }}</strong> more to get <strong>FREE</strong> delivery!
+                                            Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get <strong>FREE</strong> delivery!
                                         </p>
                                     {% endif %}
                                     <hr class="w-25 bg-info text-info float-right mt-1 mb-2">

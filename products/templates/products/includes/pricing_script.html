@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    $('.size-selected').change(function(){
+        var sizeId = $(this).val();
+        var pricing = $('#price-field').text();
+        var sizing = {
+            'xs': '7.99',
+            's': '10.99',
+            'm': '12.99',
+            'l': '15.99',
+            'xl': '18.99',
+            'xxl': '20.99'
+        };
+        sizingLength = Object.keys(sizing).length;
+        sizesOffered = Object.keys(sizing);
+        for (i=0; i<sizesOffered.length; i++) {
+            var sizeOption = Object.keys(sizing)[i];
+            if (sizeOption == sizeId){
+                var newSize = Object.keys(sizing)[i];
+                var newPrice = Object.values(sizing)[i];
+                $('#price-field').text(`£${newPrice}`);
+            };
+        };
+    });
+</script>

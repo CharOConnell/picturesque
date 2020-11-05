@@ -16,7 +16,7 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
                 <div class="product-details-container mb-4 mt-md-5">
                     <p class="mb-0 lead text-white font-weight-bold">{{ product.name }}</p>
-                    <p class="lead mb-0 text-left">From £{{ product.price }}</p>
+                    <p class="lead mb-0 text-left" id="price-field">£{{ product.price }}</p>
                     {% if product.category %}
                         <p class="small mt-b mb-0">
                             <a href="{% url 'products' %}?category={{ product.category }}" class="text-muted">
@@ -56,9 +56,8 @@
                             </div>
                             <div class="col-12">
                                 <p class="my-1 text-white">Size:</p>
-                                <select name="product_size" id="id_product_size" class="form-control text-info-dark border-info-dark my-1 w-50">
-                                    <option value="select_size" selected>Please select size</option>
-                                    <option value="xs">XS - 4"x6"</option>
+                                <select name="product_size" id="id_product_size" class="form-control text-info-dark size-selected border-info-dark my-1 w-50">
+                                    <option value="xs" selected>XS - 4"x6"</option>
                                     <option value="s">S - 8"x10"</option>
                                     <option value="m">M - 11"x14"</option>
                                     <option value="l">L - 16"x20"</option>
@@ -87,4 +86,5 @@
 {% block postloadjs %}
     {{ block.super }}
     {% include 'products/includes/quantity_input_script.html' %}
+    {% include 'products/includes/pricing_script.html' %}
 {% endblock %}
