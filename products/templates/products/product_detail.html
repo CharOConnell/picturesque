@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container-fluid mt-5 pt-5">
         <div class="row page">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
+            <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
                 <div class="image-container mt-5 pt-2">
                     {% if product.image %}
                         <img src="/media/{{ product.image }}" alt="{{ product.name }}" class="card-img-top">
@@ -13,7 +13,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
+            <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
                 <div class="product-details-container mb-4 mt-md-5">
                     <p class="mb-0 lead text-white font-weight-bold">{{ product.name }}</p>
                     <p class="lead mb-0 text-left" id="price-field">£{{ product.price }}</p>
