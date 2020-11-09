@@ -101,6 +101,22 @@ body {
     max-width: 100%;
 }
 
+/* Toasts */
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 999999999;
+}
+
 /* Media Queries */
 /* Larger containers for xl screens */
 @media (min-width: 1200px) {
