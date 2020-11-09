@@ -24,7 +24,6 @@ def bag_contents(request):
         for size, quantity in item_data['items_by_size'].items():
             new_price = Decimal(prices[size])
             product.price = new_price
-            subtotal = product.price * quantity
             total += quantity * product.price
             product_count += quantity
             bag_items.append({
@@ -32,7 +31,6 @@ def bag_contents(request):
                 'quantity': quantity,
                 'product': product,
                 'size': size,
-                'subtotal': subtotal,
             })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
