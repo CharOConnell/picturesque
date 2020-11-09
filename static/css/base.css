@@ -78,12 +78,12 @@ body {
 
 .btt-link,
 .update-link,
-.remove-link {
+.remove-item {
     cursor: pointer;
 }
 
 .update-link:hover,
-.remove-link:hover {
+.remove-item:hover {
     text-decoration: none;
 }
 
