@@ -101,6 +101,12 @@ body {
     max-width: 100%;
 }
 
+.bag-notification-wrapper {
+    max-height: 30vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
 /* Toasts */
 .custom-toast {
     overflow: visible;
