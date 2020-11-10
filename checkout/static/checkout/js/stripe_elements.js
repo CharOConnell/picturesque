@@ -1,15 +1,16 @@
 /*
-    COre logic/payment flow for this comes from here:
+    Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment
+    And old repositories
 
     CSS from here:
     https://stripe.com/docs/stripe-js
 */
 
-var stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 // sliced to remove quotation marks
-var client_secret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripe_public_key);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
 var style = {
@@ -46,4 +47,38 @@ card.addEventListener('change', function(event) {
     } else {
         errorDiv.textContent = '';
     };
+});
+
+// Handle form submit
+var form = document.getElementById('payment-form')
+
+form.addEventListener('submit', function() {
+    ev.preventDefault();
+    card.update({'disabled': true});
+    $('#submit-button').attr('disabled', true);
+    // prevent the button being pressed whilst processing
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(result) {
+        if (result.error) {
+            var errorDiv = document.getElementById('card-errors');
+            var html = `
+                <span class="icon">
+                    <i class="fas fa-times"></i>
+                </span>
+                <span>${result.error.message}</span>
+            `;
+            $(errorDiv).html(html);
+            // Allow user to fix error and re-submit
+            card.update({'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            // The payment has been processed
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            };
+        };
+    });
 });
