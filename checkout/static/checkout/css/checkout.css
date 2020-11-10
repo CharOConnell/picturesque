@@ -1,0 +1,44 @@
+#payment-form .form-control,
+#card-element {
+    background-color: #003333;
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #003333;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 1px 0 #cfd7df;
+  color: #17a2b8;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.stripe-style-input::placeholder {
+    color: #17a2b8;
+}
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #003333 !important;}
