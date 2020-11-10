@@ -21,7 +21,7 @@
         <div class="row">
             <div class="product-container mx-3 w-100">
                 <div class="row my-2 mb-2">
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="col-12 col-md-6 my-auto d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector" class="custom-select custom-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -42,7 +42,6 @@
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
                     </div>
-                    <hr class="w-50 bg-info text-info  mt-1 mb-2">
                 </div>
                 <div class="row">                
                     {% for product in products %}
