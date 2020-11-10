@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid page mt-5 pt-5">
+        <div class="row page">
+            <div class="col">
+                <h3 class="text-uppercase text-white text-center mb-1 mt-4">Thank You</h3>
+                <hr class="w-25 bg-info text-info mt-1 mb-2">
+                <p class="text-info">Your order information is below. An email confirmation will be sent to <strong>{{ order.email }}</strong></p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-lg-7">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-7 text-right mb-3" id="browse">
+                <a href="{% url 'collections' %}" class="btn shop-now-button my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-gifts"></i>
+                    </span>
+                    <span class="text-uppercase">Now check out our other collections!</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

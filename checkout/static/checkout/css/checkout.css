@@ -21,14 +21,14 @@
   padding: 10px 12px;
   border: 1px solid transparent;
   border-radius: 4px;
-  background-color: #003333;
+  background-color: #003333 !important;
+  color: #fff !important;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
   box-shadow: 0 1px 1px 0 #cfd7df;
-  color: #17a2b8;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
 }
@@ -42,5 +42,11 @@
   box-shadow: 0 1px 1px 0 #dc3545;
 }
 
-.StripeElement--webkit-autofill {
-  background-color: #003333 !important;}
+input.stripe-style-input:-webkit-autofill {
+    -webkit-text-fill-color: #fff !important;
+    box-shadow: 0 1px 1px 0 #cfd7df;
+    -webkit-box-shadow: 0 0 0px 1000px #003333 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/  */
