@@ -36,8 +36,10 @@
 .stripe-style-input::placeholder {
     color: #17a2b8;
 }
+
 .StripeElement--invalid {
-  border-color: #fa755a;
+  border-color: #dc3545 !important;
+  box-shadow: 0 1px 1px 0 #dc3545;
 }
 
 .StripeElement--webkit-autofill {
