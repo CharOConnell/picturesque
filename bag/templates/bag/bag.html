@@ -28,7 +28,7 @@
                             {% for item in bag_items %}
                                 <tr class="text-info">
                                     <td class="py-3 w-25 pl-0">
-                                        <img src="/media/{{ item.product.image }}" class="img-fluid rounded">
+                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded">
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
@@ -85,6 +85,22 @@
                                     {% endif %}
                                     <hr class="w-25 bg-info text-info float-right mt-1 mb-2">
                                     <h4 class="mt-4"><strong>Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'collections' %}" class="btn btn-second btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Browse Collections</span>
+                                    </a>
+                                    <a href="{% url 'checkout' %}" class="btn shop-now-button btn-lg">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <div class="fas fa-lock"></div>
+                                        </span>
+                                    </a>
                                 </td>
                             </tr>
                         </table>
