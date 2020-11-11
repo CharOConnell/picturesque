@@ -1,5 +1,11 @@
 from django.http import HttpResponse
 
+from .models import Order, OrderLineItem
+from products.models import Product
+
+import json
+import time
+
 
 class Stripe_WH_Handler:
     """ Handle Stripe webhooks """
@@ -20,9 +26,9 @@ class Stripe_WH_Handler:
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
-        billing_details = intent.billing_details
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        grand_total = round(intent.data.charges[0].amount / 100, 2)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
@@ -38,15 +44,17 @@ class Stripe_WH_Handler:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
-                    email__iexact=shipping_details.email,
+                    email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
-                    street_address1__iexact=shipping_details.line1,
-                    street_address2__iexact=shipping_details.line2,
-                    town__iexact=shipping_details.city,
-                    county__iexact=shipping_details.state,
-                    postcode__iexact=shipping_details.postal_code,
-                    country__iexact=shipping_details.country,
+                    street_address1__iexact=shipping_details.address.line1,
+                    street_address2__iexact=shipping_details.address.line2,
+                    town__iexact=shipping_details.address.city,
+                    county__iexact=shipping_details.address.state,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
+                    original_bag=bag,
+                    stripe_pid=pid,
                 )  # use iexact for case insensitivity
                 order_exists = True
                 break
@@ -56,21 +64,22 @@ class Stripe_WH_Handler:
         if order_exists:
             # if it has been set to true as we have an order
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | \
-                    SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
-                    email=shipping_details.email,
+                    email=billing_details.email,
                     phone_number=shipping_details.phone,
-                    street_address1=shipping_details.line1,
-                    street_address2=shipping_details.line2,
-                    town=shipping_details.city,
-                    county=shipping_details.state,
-                    postcode=shipping_details.postal_code,
-                    country=shipping_details.country,
+                    street_address1=shipping_details.address.line1,
+                    street_address2=shipping_details.address.line2,
+                    town=shipping_details.address.city,
+                    county=shipping_details.address.state,
+                    postcode=shipping_details.address.postal_code,
+                    country=shipping_details.address.country,
+                    original_bag=bag,
+                    stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
@@ -84,7 +93,7 @@ class Stripe_WH_Handler:
                         order_line_item.save()
             except Exception as e:
                 if order:
-                    order.delete() # delete if created
+                    order.delete()  # delete if created
                 return HttpResponse(
                     content=f'Webhoook received: {event["type"]} | ERROR: {e}',
                     status=500)
