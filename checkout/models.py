@@ -5,6 +5,8 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+from django_countries.fields import CountryField
+
 from products.models import Product
 
 
@@ -19,7 +21,8 @@ class Order(models.Model):
     town = models.CharField(max_length=40, null=False, blank=False)
     county = models.CharField(max_length=50, null=True, blank=True)
     postcode = models.CharField(max_length=50, null=True, blank=True)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = CountryField(
+        blank_label='Country *', null=False, blank=False)
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
@@ -28,7 +31,8 @@ class Order(models.Model):
         max_digits=10, decimal_places=2, null=False, default=0)
     # added fields for checking if same order has been placed before
     original_bag = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """ Generate a random, unique order number using UUID, private """
