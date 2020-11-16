@@ -24,6 +24,8 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile_page': True,
+        'email': profile.user.email,
+        'full_name': profile.user.get_full_name(),
     }
 
     return render(request, template, context)

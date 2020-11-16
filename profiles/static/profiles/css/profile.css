@@ -22,3 +22,23 @@ select option {
     max-height: 416px; /* height of profile form + submit button */
     overflow-y: auto;
 }
+
+/* My details section */
+/* box highlighting help from https://css-tricks.com/snippets/css/glowing-blue-input-highlights/ */
+.fake-form input {
+    background-color: #003333;
+    border: 1px solid #17a2b8;
+    color: #fff;
+    padding: 6px 12px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+
+.fake-form input:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+ 

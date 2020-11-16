@@ -15,12 +15,24 @@
         </div>
         <div class="row mt-3 page">
             <div class="col-12 col-lg-6">
-                <h4 class="text-white text-uppercase text-center text-lg-left mb-1">Delivery Details</h4>
+                <h4 class="text-white text-uppercase text-center text-lg-left mb-1">My Details</h4>
                 <hr class="w-50 bg-info text-info mt-1 mb-3 float-none float-lg-left">
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                <div class="mt-3">
+                    <div class="fake-form mb-3">
+                        <input class="w-100 rounded" type="text" value="{{ full_name }}" readonly>
+                    </div>
+                    <div class="fake-form">
+                        <input class="w-100 rounded" type="text" value="{{ email }}" readonly>
+                    </div>
+                </div>
+                <h4 class="text-white text-uppercase text-center text-lg-left mt-4 mb-1">Delivery Details</h4>
+                <hr class="w-50 bg-info text-info mt-1 mb-3 float-none float-lg-left">
+                <form class="my-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-lg shop-now-button">Update My Details</button>
+                    <div class="text-center">
+                        <button class="btn btn-lg shop-now-button justify-contents-center">Update My Details</button>
+                    </div>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
@@ -36,7 +48,7 @@
                                 <th>Order Total</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-muted">
                             {% for order in orders %}
                                 <tr>
                                     <td>
