@@ -1,0 +1,20 @@
+Thanks {{ order.full_name }} for your order!
+
+This is a confirmation of your order with Picturesque. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Subtotal: £{{ order.order_total|floatformat:2 }}
+Delivery Charges: £{{ order.delivery_cost|floatformat:2 }}
+Total: £{{ order.grand_total|floatformat:2 }}
+
+Your order is being shipped to {{ order.street_address1 }} in {{ order.town}}, {{ order.country}}.
+
+We have your contact details on file as {{ order.phone_number }}.
+
+If you have any queries, don't hesitate to contact us at {{ contact_email }}.
+
+We look forward to you receiving your order.
+
+Picturesque
