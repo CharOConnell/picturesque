@@ -62,12 +62,12 @@
                                                             </span>
                                                         </button>
                                                     </div>
-                                                    <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                    <input type="hidden" name="product_size" value="{{ item.product_size }}">
                                                 </div>
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.product_size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product_price | calc_subtotal:item.quantity | floatformat:2 }}</p>
