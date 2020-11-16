@@ -110,6 +110,7 @@ body {
 /* Toasts */
 .custom-toast {
     overflow: visible;
+    background-color: #fff;
 }
 
 .toast-capper {
@@ -153,11 +154,14 @@ body {
     margin-bottom: 1rem;
 }
 
-input::-webkit-autofill {
-    background-color: #003333 !important;
-    color: #fff !important;
-} /* not working just yet */
-
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  border: 1px solid 17a2b8;
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 1px 1px 0 #cfd7df;
+  -webkit-box-shadow: 0 0 0px 1000px #003333 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 /* Media Queries */
 /* Larger containers for xl screens */
