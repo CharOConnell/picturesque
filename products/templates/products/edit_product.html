@@ -16,13 +16,13 @@
             </div>
         </div>
         <div class="row mt-3 page">
-            <div class="col">
+            <div class="col-12">
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form admin-product-form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <div class="text-right">
-                        <a href="{% url 'collections' %}" class="btn btn-lg btn-second">Cancel</a>
-                        <button class="btn btn-lg shop-now-button" type="submit">Update Product</button>
+                    <div class="text-center mb-2 col-12">
+                        <a href="{% url 'collections' %}" class="btn btn-lg btn-second mx-2">Cancel</a>
+                        <button class="btn btn-lg shop-now-button mx-2" type="submit">Update Product</button>
                     </div>
                 </form>
             </div>
