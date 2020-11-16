@@ -1,0 +1,19 @@
+/* Set up colours for the profile form */
+#profile-update-form input,
+#id_default_country,
+select,
+select option {
+    color: #fff;
+    background-color: #003333;
+    border: 1px solid #17a2b8;
+}
+
+#profile-update-form input::placeholder,
+#id_default_country option:first-child {
+    color: #17a2b8;
+}
+
+#id_default_country option[value=""] {
+    color: #17a2b8 !important;
+}
+

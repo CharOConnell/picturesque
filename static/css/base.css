@@ -154,6 +154,7 @@ body {
     margin-bottom: 1rem;
 }
 
+/* from https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   border: 1px solid 17a2b8;
@@ -212,11 +213,7 @@ input:-webkit-autofill:focus {
     }
 }
 
-/* Header 
-.header-container {
-    padding-top: 72px;
-}
-*/
+/* Header */
 
 .fixed-top {
     position: fixed;
@@ -224,6 +221,13 @@ input:-webkit-autofill:focus {
     right: 0;
     left: 0;
     z-index: 1030;
+}
+
+/* search bar colour */
+input[name='q']:focus,
+input[name='q']:hover,
+input[name='q']:active {
+    color: #003333;
 }
 
 /* Footer */

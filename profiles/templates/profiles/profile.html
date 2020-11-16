@@ -13,8 +13,26 @@
                 <hr class="w-25 bg-info text-info mt-1 mb-2">
             </div>
         </div>
-        <div class="row mt-3 mx-3 page">
-            {{ profile }}
+        <div class="row mt-3 page">
+            <div class="col-12 col-lg-6">
+                <p class="text-white text-uppercase text-center text-lg-left mb-1">Delivery Details</p>
+                <hr class="w-25 bg-info text-info mt-1 mb-3 float-none float-lg-left">
+                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-lg shop-now-button">Update My Details</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="text-white text-uppercase text-center text-lg-left mb-1">Order History</p>
+                <hr class="w-25 bg-info text-info mt-1 mb-3 float-none float-lg-left">
+                {{ orders }}
+            </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfieldColour.js' %}"></script>
 {% endblock %}

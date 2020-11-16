@@ -20,10 +20,7 @@ select option[value=""] {
     color: #17a2b8 !important;
 }
 
-/**
- * The CSS shown here will not be introduced in the Quickstart guide, but shows
- * how you can use CSS to style your Element's container.
- */
+/* Stripe element colours and controls */
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -52,14 +49,13 @@ select option[value=""] {
   box-shadow: 0 1px 1px 0 #dc3545;
 }
 
+/* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/  */
 input.stripe-style-input:-webkit-autofill {
     -webkit-text-fill-color: #fff !important;
     box-shadow: 0 1px 1px 0 #cfd7df;
     -webkit-box-shadow: 0 0 0px 1000px #003333 inset;
     transition: background-color 5000s ease-in-out 0s;
 }
-
-/* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/  */
 
 /* Checkout overlay spinner */
 #loading-overlay {
