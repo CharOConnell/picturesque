@@ -1,0 +1,21 @@
+.admin-product-form input,
+.admin-product-form select,
+.admin-product-form textarea,
+.admin-product-form input:focus,
+.admin-product-form select:focus,
+.admin-product-form textarea:focus,
+.admin-product-form input:active,
+.admin-product-form select:active,
+.admin-product-form textarea:active {
+    border: 1px solid #17a2b8;
+    background-color: #003333;
+}
+
+.admin-product-form label {
+    color: #fff;
+}
+
+#id_image {
+    border-radius: .25rem;
+    padding: 0.5rem;
+}
