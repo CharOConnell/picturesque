@@ -50,7 +50,8 @@ select option[value=""] {
 }
 
 /* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/  */
-input.stripe-style-input:-webkit-autofill {
+input.stripe-style-input:-webkit-autofill,
+select.stripe-style-input:-webkit-autofill {
     -webkit-text-fill-color: #fff !important;
     box-shadow: 0 1px 1px 0 #cfd7df;
     -webkit-box-shadow: 0 0 0px 1000px #003333 inset;
