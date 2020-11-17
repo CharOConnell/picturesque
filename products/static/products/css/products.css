@@ -1,3 +1,4 @@
+/* Product form */
 .admin-product-form input,
 .admin-product-form select,
 .admin-product-form textarea,
@@ -18,4 +19,25 @@
 #id_image {
     border-radius: .25rem;
     padding: 0.5rem;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    background-color: #003333;
+    border-color: #17a2b8;
+}
+
+.btn-file:hover {
+    background-color: #343a40;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }

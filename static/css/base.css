@@ -24,6 +24,40 @@ body {
     min-height: calc(100vh - 127px);
 }
 
+/* Custom boostrap classes */
+.bg-info-dark {
+    background-color: #003333;
+}
+
+.text-info-dark {
+    color: #003333 !important;
+}
+
+/* Header */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+}
+.navbar-brand {
+    margin-right: 0;
+}
+
+/* Search bar colour */
+input[name='q']:focus,
+input[name='q']:hover,
+input[name='q']:active {
+    color: #003333;
+}
+
+/* Icons and buttons */
 /* from Bulma */
 .icon {
     align-items: center;
@@ -85,14 +119,6 @@ body {
 .update-link:hover,
 .remove-item:hover {
     text-decoration: none;
-}
-
-.bg-info-dark {
-    background-color: #003333;
-}
-
-.text-info-dark {
-    color: #003333 !important;
 }
 
 .image-fluid {
@@ -172,14 +198,6 @@ input:-webkit-autofill:focus {
     }
 }
 
-.navbar {
-    padding-right: 0.2rem;
-    padding-left: 0.2rem;
-}
-.navbar-brand {
-    margin-right: 0;
-}
-
 /* Update titles for xs screens */
 @media (max-width: 390px) {
     h2 {
@@ -211,23 +229,6 @@ input:-webkit-autofill:focus {
         padding-right: 0.5rem;
         padding-left: 0.5rem;
     }
-}
-
-/* Header */
-
-.fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-}
-
-/* search bar colour */
-input[name='q']:focus,
-input[name='q']:hover,
-input[name='q']:active {
-    color: #003333;
 }
 
 /* Footer */
