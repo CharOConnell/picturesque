@@ -40,6 +40,26 @@ body {
     height: 15rem;
 }
 
+/* Accordion styling */
+.card-header {
+    background-color: #003333;
+    border-color: #17a2b8;
+}
+
+.card-body {
+    background-color: #003333;
+    color: #17a2b8;
+}
+
+.card .btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
 /* Custom boostrap classes */
 .bg-info-dark {
     background-color: #003333;
