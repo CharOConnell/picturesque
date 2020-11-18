@@ -24,6 +24,22 @@ body {
     min-height: calc(100vh - 127px);
 }
 
+/* Contact page */
+.textInput,
+.textInput:focus,
+.textInput:active,
+.textInput:hover {
+    background-color: #003333;
+}
+
+.textInput::placeholder {
+    color: #17a2b8;
+}
+
+#message_content {
+    height: 15rem;
+}
+
 /* Custom boostrap classes */
 .bg-info-dark {
     background-color: #003333;

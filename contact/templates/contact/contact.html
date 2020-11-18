@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid page mt-5 pt-5">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-uppercase text-white text-center mb-1 mt-4">Contact</h3>
+                <hr class="w-50 bg-info text-info mt-1 mb-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4 class="text-uppercase text-white text-center mb-1 mt-4">Send Us An E-mail</h4>
+                <hr class="w-25 bg-info text-info mt-1 mb-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">                
+                <form action="{% url 'contact' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <div class="py-2">
+                        <label for="name" class="px-1 text-white requiredField">
+                            Name<span class="asteriskField">*</span>
+                        </label>
+                        <input type="text" name="name" id="name" placeholder="Your name" required class="textinput textInput form-control bg-info-dark border-info text-white">
+                    </div>
+                    <div class="py-2">
+                        <label for="email" class="px-1 text-white requiredField">
+                            E-mail Address<span class="asteriskField">*</span>
+                        </label>
+                        <input type="email" name="email" id="email" placeholder="Your e-mail address" autocomplete="email" required class="textinput textInput form-control bg-info-dark border-info text-white">
+                    </div>
+                    <div class="py-2">
+                        <label for="subject" class="px-1 text-white requiredField">
+                            E-mail Subject<span class="asteriskField">*</span>
+                        </label>
+                        <input type="text" name="subject" id="subject" placeholder="Subject of the e-mail" required class="textinput textInput form-control bg-info-dark border-info text-white">
+                    </div>
+                    <div class="py-2">
+                        <label for="message_content" class="px-1 text-white requiredField">
+                            Message<span class="asteriskField">*</span>
+                        </label>
+                        <textarea name="message_content" id="message_content" placeholder="Your message to Picturesque" required class="textinput textInput form-control bg-info-dark border-info text-white"></textarea>
+                    </div>
+                    <div class="my-3 text-center">
+                        <button class="btn btn-lg shop-now-button" id="submit-button" type="submit">
+                            <span class="font-weight-bold">Send E-mail</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h4 class="text-uppercase text-white text-center mb-1 mt-4">FAQs</h4>
+                <hr class="w-25 bg-info text-info mt-1 mb-2">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                
+            </div>
+        </div>        
+    </div>
+{% endblock %}
