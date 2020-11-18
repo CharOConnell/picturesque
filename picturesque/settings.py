@@ -27,7 +27,7 @@ SECRET_KEY = '6xxqk0n^@-cegk_3ws$$rrmq_qn+x9)mczg7w0730l)z7slylp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['picturesque-prints.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -121,11 +121,20 @@ WSGI_APPLICATION = 'picturesque.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+DATABASES = {
+    'default': dj_database_url.parse('postgres://ieojpzbycfkxfk:74c818c594b65ca6cbe35447d36af74ebd0343b973051b48f099f610b8722e72@ec2-79-125-86-58.eu-west-1.compute.amazonaws.com:5432/d7pssjbbcerchc')
 }
 
 
