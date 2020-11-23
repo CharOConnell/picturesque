@@ -82,7 +82,8 @@ def collections(request):
     ]
 
     links = [
-        {'id': 285, 'link': 'products', 'cat': ''},
+        {'id': 285, 'link': 'products',
+         'cat': '?category=architecture,castles,vehicles,landscapes,nature'},
         {'id': 17, 'link': 'products', 'cat': '?category=architecture'},
         {'id': 82, 'link': 'products', 'cat': '?category=castles'},
         {'id': 129, 'link': 'products', 'cat': '?category=vehicles'},
