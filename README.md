@@ -28,6 +28,15 @@
     - [Acknowledgements](#acknowledgements)
 
 ## Project purpose
+Picturesque is an e-commerce website built to sell prints of photographs displayed on the site.
+The prints can be chosen to be in an array of sizes with prices which reflect the change of size.
+The photographs showcased are from my personal holiday collection.
+
+There is a landing page which tells the user more about the inspiration and photography side of the website.
+There is a gallery of different collections as the photographs are subdivided into categories.
+The user is able to look at a specific photograph in more details before choosing which size to purchase.
+There is a user profile page where the user is able to view their order history and can update their saved details.
+Finally, there is a contact page where there are FAQs about the products and a contact form for the users to contact the site owner directly.
 
 ## User Experience
 ### User Stories
