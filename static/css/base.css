@@ -86,11 +86,15 @@ body {
     margin-right: 0;
 }
 
-/* Search bar colour */
+/* Search bar colour and size */
 input[name='q']:focus,
 input[name='q']:hover,
 input[name='q']:active {
     color: #003333;
+}
+
+#search-bar {
+    max-width: 80%;
 }
 
 /* Icons and buttons */
@@ -253,6 +257,10 @@ input:-webkit-autofill:focus {
 @media (max-width: 281px) {
     h2 {
         font-size: 1.4rem !important;
+    }
+    
+    #search-bar {
+        width: 75%;
     }
 }
 
