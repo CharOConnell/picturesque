@@ -234,8 +234,50 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
 ### Bugs Found
 
 ## Deployment
+This project has been deployed using Heroku.
+
 ### Deploying via Heroku
+The process involved consists of:
+- Adding regularly to the Git branch, committing with comments each time
+- Pushing this Git branch to GitHub
+- Pushing it to the Heroku branch
+- Creating the necessary Procfile and requirements.txt files
+- Deploying to the Heroku webpage
+- Adding security to the MongoDB database, and linking any addresses and ports to the Heroku app
+
+Pushing to Heroku from Git:
+- I ensured that the Procfile and requirements.txt were saved within the repository
+- Within Heroku, I created an app for the page
+- All commits were finalised and pushed to the GitHub repository
+- The following was entered inside the Git bash terminal:
+    - $ heroku login
+    - $ heroku apps
+    - $ heroku git:remote -a lettuce-cook
+    - $ git push heroku master
+- The webpage was then deployed to Heroku
+
 ### Deploying locally
+To deploy this project locally, you will need to do the following:
+- Clone the GitHub repository:
+    - Navigate to the repository url: https://github.com/CharOConnell/picturesque 
+    - Click on "Clone or Download"
+    - To clone the repository using HTTPS, under "Clone with HTTPS", copy the link inside the box
+    - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then copy the link inside the box
+    - Open the Git Bash
+    - Change the current working directory to the location where you want to clone the directory
+    - Type git clone, and then paste the URL you copied before
+        - $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    - Press Enter and your clone will be created
+- Once any changes are made, you will need to push to the Heroku server
+- Make sure that there is a Procfile and requirements.txt file within the repository
+- Ensure you have created your own Heroku app to deploy to 
+- To push to Heroku, you must enter the following inside the Git bash terminal:
+    - $ heroku login (you will be asked to login with your username and password)
+    - $ heroku apps
+    - $ heroku git:remote -a app-name-of-heroku-app
+    - $ git push heroku master
+- Your project will the be published to Heroku
+
 
 ## Credits
 ### Content
