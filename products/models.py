@@ -23,7 +23,8 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=False, blank=False)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2,
+                                default=7.99)
     image = models.ImageField(null=False, blank=False)
 
     def __str__(self):
