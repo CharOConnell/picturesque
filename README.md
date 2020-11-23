@@ -224,6 +224,8 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
     - The main database system is based in **PostgreSQL**
 - [Heroku](https://www.heroku.com/)
     - The project is deployed from **Heroku** 
+- [Stripe](https://stripe.com/gb?utm_campaign=paid_brand-UK_en_Search_Brand_Stripe-2032860449&utm_medium=cpc&utm_source=google&ad_content=355351450259&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAiA2O39BRBjEiwApB2IktHADHNhDsmsQuWDO45V88VNsY-9bAcoCJ7QRuvK1m4TWR_qRxxTWBoCnhYQAvD_BwE)
+    - The project handles payments through **Stripe**
 
 
 ## Testing
@@ -252,7 +254,7 @@ Pushing to Heroku from Git:
 - The following was entered inside the Git bash terminal:
     - $ heroku login
     - $ heroku apps
-    - $ heroku git:remote -a lettuce-cook
+    - $ heroku git:remote -a picturesque
     - $ git push heroku master
 - The webpage was then deployed to Heroku
 
@@ -281,5 +283,19 @@ To deploy this project locally, you will need to do the following:
 
 ## Credits
 ### Content
+All text and descriptions on this website have been written by me.
+
 ### Media
+- All the photos used were taken from my personal holiday photograph collection which I have taken.
+- The mockups were drawn up by me using the software GNU Pencil.
+- The no image photo was taken from a Code Institute project whos repository can be found [here](https://github.com/CharOConnell/e-commerce-learning-django)
+
 ### Acknowledgements
+All elements which I have used within this page that were inspired by, or are from external sources, are linked below:
+- For the base information to create the flex system, I used [this page](https://getbootstrap.com/docs/4.0/utilities/flex/) as a reference
+- The dropdown menu was styled using the Bootstrap "navbar" item, found [here](https://getbootstrap.com/docs/4.0/components/navbar/)
+- The FAQ menu was styled using the Bootstrap "accordion" functionality, found [here](https://getbootstrap.com/docs/4.0/components/collapse/)
+- For the base django template, I used a previous Code Institute learning project for help, whos repository can be found [here](https://github.com/CharOConnell/e-commerce-learning-django)
+- For changing the background in forms for autofill elements, I found the relevant css from [this website](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
+- For box highlighting help in the profile app, I used [this](https://css-tricks.com/snippets/css/glowing-blue-input-highlights/)
+- For cloning a GitHub repository, the instructions were taken from [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
