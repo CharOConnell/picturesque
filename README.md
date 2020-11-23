@@ -186,10 +186,45 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
 
 
 ## Features
+- This website is built using Django with added Bootstrap frameworks, CSS, JavaScript where applicable.
+- The functionality of bootstrap classes and the flexible framework it provides allowed for an easily structured webpage.
+- JavaScript and JQuery additions to selected buttons allowed for posting form updates to the backend Python scripts and other page updates.
+- Using the Bootstrap navbar allowed for a seamless collapsible navbar, along with the smooth functionality of the Boostrap accordion menu for the FAQs.
+- A PostgreSQL database is used to host the database and the whole project is deployed through an Heroku app.
+
 ### Existing Features
+- On the products page, there is a "Back To Top" button which allows the users to easily go back to the top of the page
+- The navbar is sticky, so the user can always see the amount in the cart and the navigation menu
+- Autofill forms for the personal details (if they exist) in the profile and checkout pages
+- Forms which allow users to input information into the database such as profile information, payment information and product information for admin users
+- Font Awesome icons for the socials menu on the footer
+
 ### Features Left to Implement
+- Price selection dropdown menu for the inputting of new products into the database
+- Review functionality for the products from users after purchasing
 
 ## Technologies Used
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) 
+    - The project uses **HTML5** as a base language for the webpage
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+    - The project is styled mainly using **CSS3** 
+- [Bootstrap 4.5.3](https://getbootstrap.com/)
+    - The project is structured using the **Bootstrap** grid system, implementing the flex and accordion attributes
+- [JQuery 3.5.1](https://jquery.com)
+    - The project uses **JQuery** to simplify DOM manipulation
+- [JavaScript](https://www.javascript.com/)
+    - The project uses **JavaScript** to make the functionality more smooth and interactive
+- [Font Awesome 5.15.1](https://fontawesome.com/)
+    - The project uses **Font Awesome** for icons within the webpage
+- [Python 3.8.6](https://www.python.org/)
+    - The project uses **Python** for the main backend processing
+- [Django 3.1.3](https://www.djangoproject.com/)
+    - The project uses **Django** as the main framework everything is based from
+- [PostgreSQL](https://www.postgresql.org/)
+    - The main database system is based in **PostgreSQL**
+- [Heroku](https://www.heroku.com/)
+    - The project is deployed from **Heroku** 
+
 
 ## Testing
 ### Full Testing
