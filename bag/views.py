@@ -53,12 +53,9 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """ Adjust the quantity of the specified product in the shopping bag """
     product = get_object_or_404(Product, pk=item_id)
-    print('product: ', product)
-    print('POST request: ', request.POST)
     quantity = int(request.POST.get('quantity'))
     size = request.POST['product_size']
     bag = request.session.get('bag', {})
-    print(bag)
 
     if quantity > 0:
         bag[item_id]['items_by_size'][size] = quantity

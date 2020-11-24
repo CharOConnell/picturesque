@@ -63,6 +63,9 @@
                                                         </button>
                                                     </div>
                                                     <div class="input-group-size">
+                                                        <input type="hidden" name="product_size" value="{{ item.product_size }}" readonly
+                                                            class="form-control form-control-sm text-info-dark border-info rounded size_input mx-1">
+                                                        <!--
                                                         <select class="form-control form-control-sm text-info-dark border-info rounded size_input mx-1"
                                                             name="product_size" id="id_size_{{ item.item_id}}" data-product_new_size="">
                                                             {% for size in sizes %}
@@ -72,7 +75,7 @@
                                                                     <option value="{{ size }}">{{ size|upper }}</option>
                                                                 {% endif %}
                                                             {% endfor %}
-                                                        </select>
+                                                        </select>-->
                                                     </div>
                                                 </div>
                                             </div>
