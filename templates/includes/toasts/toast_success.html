@@ -35,11 +35,11 @@
                             <span class="float-right">£{{ total|floatformat:2 }}</span>
                         </p></strong>
                         {% if free_delivery_delta > 0 %}
-                            <p class="mb-0 p-2 bg-warning text-center text-info-dark">
+                            <p class="mb-0 p-2 bg-warning text-center text-info-dark rounded delivery-toast-banner">
                                 Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get <strong>FREE</strong> delivery!
                             </p>
                         {% endif %}
-                        <a href="{% url 'view_bag' %}" class="btn btn-block bg-info-dark text-white">
+                        <a href="{% url 'view_bag' %}" class="btn btn-block bg-info-dark text-white checkout-toast-button">
                             <span class="text-uppercase">Go to secure checkout</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>

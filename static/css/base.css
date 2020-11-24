@@ -60,7 +60,7 @@ body {
     box-shadow: none;
 }
 
-/* Custom boostrap classes */
+/* Custom boostrap colour classes */
 .bg-info-dark {
     background-color: #003333;
 }
@@ -231,36 +231,94 @@ input:-webkit-autofill:focus {
 }
 
 /* Media Queries */
-/* Larger containers for xl screens */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
-}
-
-/* Update titles for xs screens */
-@media (max-width: 390px) {
-    h2 {
-        font-size: 1.75rem !important;
-    } /* h3 sizing */
-    h3 {
-        font-size: 1.5rem !important;
-    } /* h4 sizing */
-    h5 {
-        font-size: 1rem !important;
-    } /* h6 sizing */
-    .navbar-toggler-icon {
-        height: 1.5rem;
-    }
-}
-
+/* Update titles for xxs screens */
 @media (max-width: 281px) {
     h2 {
         font-size: 1.4rem !important;
     }
+
+    h4 {
+        font-size: 1.25rem !important;
+    } /* h5 styling */
     
     #search-bar {
         width: 75%;
+    }
+
+    .page {
+        font-size: x-small;
+    }
+
+    .input-group .form-control {
+        width: 25%;
+        font-size: x-small;
+        text-align: center;
+        height: calc(1.5em + .75rem + 4px);
+    }
+
+    .input-group .form-control:not(.qty_input) {
+        margin: .5rem;
+    }
+
+    .input-group>.input-group-prepend>.btn,
+    .input-group>.input-group-append>.btn {
+        padding: .1rem;
+    }
+
+    .collections-button {
+        padding-top: .12rem;
+        padding-bottom: .12rem;
+    }
+
+    #id_product_size {
+        font-size: x-small;
+    }
+
+    .checkout-toast-button, 
+    .delivery-toast-banner {
+        font-size: small;
+    }
+}
+
+@media (max-width: 390px) {
+    h2 {
+        font-size: 1.75rem !important;
+    } /* h3 sizing */
+
+    h3 {
+        font-size: 1.5rem !important;
+    } /* h4 sizing */
+
+    h5 {
+        font-size: 1rem !important;
+    } /* h6 sizing */
+
+    .navbar-toggler-icon {
+        height: 1.5rem;
+    }
+
+    .update-link {
+        float: right;
+        margin: .2rem;
+    }
+
+    .remove-item {
+        margin: .2rem;
+    }    
+}
+
+
+/* Update bag quantity for xs screens */
+@media (min-width: 282px) and (max-width: 540px) {
+    .input-group .form-control {
+        width: 25%;
+        font-size: x-small;
+        text-align: center;
+        height: calc(1.5em + .75rem + 4px);
+    }
+
+    .size_input {
+        margin: .2rem;
     }
 }
 
@@ -269,9 +327,17 @@ input:-webkit-autofill:focus {
     #search-bar {
         max-width: 150px;
     }
+
     .search-button {
         padding-right: 0.5rem;
         padding-left: 0.5rem;
+    }
+}
+
+/* Larger containers for xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
     }
 }
 

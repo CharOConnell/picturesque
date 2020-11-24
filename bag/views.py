@@ -5,8 +5,20 @@ from products.models import Product
 
 def view_bag(request):
     """ A view to return the shopping bag page """
+    sizing = {
+        'xs': 'XS - 4"x6"',
+        's': 'S - 8"x10"',
+        'm': 'M - 11"x14"',
+        'l': 'L - 16"x20"',
+        'xl': 'XL - 24"x36"',
+        'xxl': 'XXL - 30"x40"',
+    }
 
-    return render(request, 'bag/bag.html')
+    context = {
+        'sizes': sizing,
+    }
+
+    return render(request, 'bag/bag.html', context)
 
 
 def add_to_bag(request, item_id):
@@ -40,11 +52,13 @@ def add_to_bag(request, item_id):
 
 def adjust_bag(request, item_id):
     """ Adjust the quantity of the specified product in the shopping bag """
-
     product = get_object_or_404(Product, pk=item_id)
+    print('product: ', product)
+    print('POST request: ', request.POST)
     quantity = int(request.POST.get('quantity'))
     size = request.POST['product_size']
     bag = request.session.get('bag', {})
+    print(bag)
 
     if quantity > 0:
         bag[item_id]['items_by_size'][size] = quantity

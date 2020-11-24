@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    // Change the size of the product when clicked
+    $('.input-group-size').change(function(e) {
+        e.preventDefault();
+        var chosenSize = $(this).find('.size_input').val();
+        var itemId = $(this).find('select').attr('id');
+        var oldSize = $(this).find('.old_size').val();
+        var newSize = oldSize.concat('_').concat(chosenSize);
+
+        // Update the bag value to have both old and new values
+        $(`#${itemId} option`).attr('value', newSize);
+    });
+</script>

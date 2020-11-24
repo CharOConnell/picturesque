@@ -21,7 +21,7 @@
                                     <th scope="col"></th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
+                                    <th scope="col">Sub-total</th>
                                 </tr>
                             </thead>
 
@@ -32,7 +32,7 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0">Size: {{ item.product_size|upper }}</p>
+                                        <p class="my-0 original_size">Size: {{ item.product_size|upper }}</p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
@@ -44,7 +44,7 @@
                                             <div class="form-group mb-1">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-second"
+                                                        <button class="decrement-qty btn btn-sm btn-second rounded-left"
                                                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                             <span>
                                                                 <i class="fas fa-minus fa-sm"></i>
@@ -55,14 +55,25 @@
                                                         name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
                                                     <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-second"
+                                                        <button class="increment-qty btn btn-sm btn-second rounded-right"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                             <span>
                                                                 <i class="fas fa-plus fa-sm"></i>
                                                             </span>
                                                         </button>
                                                     </div>
-                                                    <input type="hidden" name="product_size" value="{{ item.product_size }}">
+                                                    <div class="input-group-size">
+                                                        <select class="form-control form-control-sm text-info-dark border-info rounded size_input mx-1"
+                                                            name="product_size" id="id_size_{{ item.item_id}}" data-product_new_size="">
+                                                            {% for size in sizes %}
+                                                                {% if size == item.product_size %}
+                                                                    <option class="old_size" value="{{ size }}" selected>{{ size|upper }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ size }}">{{ size|upper }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
@@ -123,6 +134,7 @@
     {{ block.super }}
     {% include 'products/includes/quantity_input_script.html' %}
     {% include 'products/includes/pricing_script.html' %}
+    {% include 'bag/includes/sizing_script.html' %}
 
     <script type="text/javascript">
         // Update quantity on click
