@@ -22,7 +22,7 @@
                                             {% if link.id == product.id %}
                                                 {% if product.image %}
                                                     <a href="{% url link.link %}{{link.cat}}">
-                                                        <img src="/media/{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
+                                                        <img src="{{ MEDIA_URL }}{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
                                                     </a>
                                                 {% else %}
                                                     <a href="">

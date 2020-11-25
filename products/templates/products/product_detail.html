@@ -7,7 +7,7 @@
             <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
                 <div class="image-container mt-5 pt-2">
                     {% if product.image %}
-                        <img src="/media/{{ product.image }}" alt="{{ product.name }}" class="card-img-top">
+                        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}" class="card-img-top">
                     {% else %}
                         <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top">
                     {% endif %}
