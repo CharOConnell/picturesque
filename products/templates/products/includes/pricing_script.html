@@ -18,7 +18,7 @@
         sizesOffered = Object.keys(sizing);
         for (i=0; i<sizesOffered.length; i++) {
             var sizeOption = Object.keys(sizing)[i];
-            if (sizeOption == sizeId){
+            if (sizeOption === sizeId){
                 // If the new size matches the size option
                 var newSize = Object.keys(sizing)[i];
                 var newPrice = Object.values(sizing)[i];
