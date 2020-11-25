@@ -5,11 +5,12 @@ from products.models import Product
 
 
 def bag_contents(request):
-
+    """ Give the bag contents details about the products """
     bag_items = []
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    # Allow for the changeable pricing on the website
     prices = {
         'xs': 7.99,
         's': 10.99,
@@ -23,6 +24,7 @@ def bag_contents(request):
         product = get_object_or_404(Product, pk=item_id)
         for size, quantity in item_data['items_by_size'].items():
             if '_' not in size:
+                # Add the information to the bag for displaying data
                 new_price = Decimal(prices[size])
                 product.price = new_price
                 total += quantity * product.price
@@ -35,6 +37,7 @@ def bag_contents(request):
                     'product_price': product.price,
                 })
 
+    # Calculate the delivery costs
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE/100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -42,6 +45,7 @@ def bag_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
+    # Calculate the order total
     grand_total = delivery + total
 
     context = {

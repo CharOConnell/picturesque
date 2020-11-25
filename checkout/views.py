@@ -21,6 +21,7 @@ import json
 def cache_checkout_data(request):
     """ Used for the saving data to user page """
     try:
+        # Collect the Stripe config variables
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
@@ -36,10 +37,13 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ Collect the checkout information """
+    # Collect the Stipe config variables
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
+        # The user has asked to checkout, so collect bag information
         bag = request.session.get('bag', {})
 
         form_data = {
@@ -53,6 +57,8 @@ def checkout(request):
             'country': request.POST['country'],
             'county': request.POST['county'],
         }
+
+        # Create an order form instance
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -62,9 +68,12 @@ def checkout(request):
             order.original_bag = json.dumps(bag)
             order.save()
             for item_id, item_data in bag.items():
+                # For each item in the bag
                 try:
                     product = Product.objects.get(id=item_id)
+                    # Collect the product information
                     for size, quantity in item_data['items_by_size'].items():
+                        # Save each item to the order line item model
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -73,20 +82,25 @@ def checkout(request):
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
+                    # Product is non existent in database
                     messages.error(request, (
                         "One of the products in your bag was\
                             not found in our database. "
                         "Please call us for assistance."
                     ))
+                    # Delete the order
                     order.delete()
                     return redirect(reverse('view_bag'))
+            # See if the user has asked to save user information to profile
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                             args=[order.order_number]))
         else:
+            # Form entry was invalid
             messages.error(request, "There was an error with your form. \
                 Please double check your information.")
     else:
+        # Collect the bag information
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request,
@@ -118,8 +132,10 @@ def checkout(request):
                     'country': profile.default_country,
                 })
             except UserProfile.DoesNotExist:
+                # Render an empty form as no user profile exists
                 order_form = OrderForm()
         else:
+            # Render an empty form as no user profile exists
             order_form = OrderForm()
 
         if not stripe_public_key:
@@ -138,7 +154,9 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """ Handle successful checkouts """
+    # See if the user has requested to save information to profile
     save_info = request.session.get('save_info')
+    # Collect order information
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
@@ -160,15 +178,19 @@ def checkout_success(request, order_number):
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
+                # Only save the information if the form is valid
                 user_profile_form.save()
 
+    # Let the user know the order has been successful
     messages.success(request, f'Order successfully processed. \
         Your order number is {order_number} and a confirmation email\
             has been sent to {order.email}.')
 
+    # Delete the bag from the session as it has been ordered
     if 'bag' in request.session:
         del request.session['bag']
 
+    # Render the checkout success page with order confirmation details
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

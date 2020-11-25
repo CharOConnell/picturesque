@@ -7,9 +7,10 @@
     https://stripe.com/docs/stripe-js
 */
 
-// sliced to remove quotation marks
+// Sliced to remove quotation marks
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
+// Create a stripe element using the public key
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
@@ -28,7 +29,7 @@ var style = {
     iconColor: '#dc3545',
   }
 };
-// invalid set to bootstrap text-danger
+// Invalid set to bootstrap text-danger
 
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
@@ -54,15 +55,15 @@ var form = document.getElementById('payment-form')
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
-    // prevent the button being pressed whilst processing
+    // Prevent the button being pressed whilst processing
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
     
-    // display loading overlay
+    // Display loading overlay
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    // add data to the payment intent (save info, username, etc)
+    // Add data to the payment intent (save info, username, etc)
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
@@ -72,9 +73,9 @@ form.addEventListener('submit', function(ev) {
     };
     var url = '/checkout/cache_checkout_data/';
 
-    // post data to the payment intent before passing to stripe
+    // Post data to the payment intent before passing to stripe
     $.post(url, postData).done(function() {
-        // pass the data to Strip in the payment intent
+        // Pass the data to Stripe in the payment intent
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -105,6 +106,7 @@ form.addEventListener('submit', function(ev) {
             },
         }).then(function(result) {
             if (result.error) {
+                // Display an error
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
                     <span class="icon">
@@ -126,7 +128,7 @@ form.addEventListener('submit', function(ev) {
             };
         });
     }).fail(function() {
-        // load the page again to show the error message if it fails without charging user
+        // Load the page again to show the error message if it fails without charging user
         location.reload();
     });
 });

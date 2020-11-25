@@ -25,6 +25,7 @@ class UserProfile(models.Model):
         blank_label='Country', null=True, blank=True)
 
     def __str__(self):
+        """ Return the username when called """
         return self.user.username
 
 
@@ -32,6 +33,7 @@ class UserProfile(models.Model):
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """ Create or update the user profile """
     if created:
+        # Create a new user profile
         UserProfile.objects.create(user=instance)
-    # existing users just save profile
+    # Existing users update the profile
     instance.userprofile.save()

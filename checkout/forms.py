@@ -3,7 +3,9 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """ Create a form format for any orders """
     class Meta:
+        """ Give the form fields """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
@@ -24,13 +26,17 @@ class OrderForm(forms.ModelForm):
             'postcode': 'Postcode',
         }
 
+        # Auto focus on the first field
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
+            # Create placeholders for the fields except country
             if field != 'country':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+            # Give the form a style for the css
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            # Disable field labels
             self.fields[field].label = False

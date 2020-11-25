@@ -1,3 +1,4 @@
+/* --------------------------------------------- Page backgrounds and setup */
 html {
     height: 100%;
 }
@@ -24,7 +25,36 @@ body {
     min-height: calc(100vh - 127px);
 }
 
-/* Contact page */
+/* --------------------------------------------- Header styling */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+}
+.navbar-brand {
+    margin-right: 0;
+}
+
+/* Search bar colour and size */
+input[name='q']:focus,
+input[name='q']:hover,
+input[name='q']:active {
+    color: #003333;
+}
+
+#search-bar {
+    max-width: 80%;
+}
+
+
+/* --------------------------------------------- Contact page */
 .textInput,
 .textInput:focus,
 .textInput:active,
@@ -60,7 +90,7 @@ body {
     box-shadow: none;
 }
 
-/* Custom boostrap colour classes */
+/* --------------------------------------------- Custom Boostrap colour classes */
 .bg-info-dark {
     background-color: #003333;
 }
@@ -69,35 +99,7 @@ body {
     color: #003333 !important;
 }
 
-/* Header */
-.fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-}
-
-.navbar {
-    padding-right: 0.2rem;
-    padding-left: 0.2rem;
-}
-.navbar-brand {
-    margin-right: 0;
-}
-
-/* Search bar colour and size */
-input[name='q']:focus,
-input[name='q']:hover,
-input[name='q']:active {
-    color: #003333;
-}
-
-#search-bar {
-    max-width: 80%;
-}
-
-/* Icons and buttons */
+/* --------------------------------------------- Icons and buttons */
 /* from Bulma */
 .icon {
     align-items: center;
@@ -173,7 +175,7 @@ input[name='q']:active {
     overflow-y: auto;
 }
 
-/* Toasts */
+/* --------------------------------------------- Toasts */
 .custom-toast {
     overflow: visible;
     background-color: #fff;
@@ -190,7 +192,7 @@ input[name='q']:active {
     z-index: 999999999;
 }
 
-/* Allauth form formatting */
+/* --------------------------------------------- Allauth form formatting */
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: #6c757d; /* text-secondary */
@@ -230,7 +232,7 @@ input:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Media Queries */
+/* --------------------------------------------- Media Queries */
 /* Update titles for xxs screens */
 @media (max-width: 281px) {
     h2 {
@@ -303,7 +305,7 @@ input:-webkit-autofill:focus {
     }
 }
 
-/* Footer */
+/* --------------------------------------------- Footer stying */
 footer {
     height: 4rem;
     bottom: 0;
@@ -329,4 +331,3 @@ footer {
 .socials li a i:hover {
     color: #003333;
 }
-

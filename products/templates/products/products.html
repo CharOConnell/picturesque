@@ -5,12 +5,14 @@
     <div class="container-fluid mt-5 pt-5">
         <div class="row">
             <div class="col">
-                <h3 class="text-uppercase text-white text-center mb-1 mt-4">Photos</h3>
+                <!-- Page title -->
+                <h3 class="text-uppercase text-white text-center mb-1 mt-4">Photographs</h3>
                 <hr class="w-25 bg-info text-info  mt-1 mb-2">
             </div>
         </div>
         <div class="row">
             <div class="col text-center">
+                <!-- Display category badges at the top of the screen -->
                 {% for c in current_categories %}
                     <a href="{% url 'products' %}?category={{ c.name }}" class="category-badge text-decoration-none">
                         <span class="p-2 mt-2 badge border border-info">{{ c.friendly_name }}</span>
@@ -21,6 +23,7 @@
         <div class="row">
             <div class="product-container mx-3 w-100">
                 <div class="row my-2 mb-2">
+                    <!-- Sorting selection box -->
                     <div class="col-12 col-md-6 my-auto d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector" class="custom-select custom-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -32,35 +35,36 @@
                             </select>
                         </div>
                     </div>
+                    <!-- Sorting information -->
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted my-2 text-center text-md-left">
+                            <!-- Link back to all photos selection -->
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
                                 <span><a class="text-info" href="/products/?category=architecture,castles,vehicles,landscapes,nature">All Photos</a> | </span>
                             {% endif %}
+                            <!-- Number of products found on page -->
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
                     </div>
                 </div>
-                <div class="row">                
+                <div class="row">        
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-1">
                             <div class="card h-100 bg-info-dark py-1 border-0 align-items-center">
-                                {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img src="{{ MEDIA_URL }}{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top image-fluid">
-                                    </a>
-                                {% endif %}
+                                <!-- Display product image with link to it's detail page -->
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ MEDIA_URL }}{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
+                                </a>
+                                <!-- Product name -->
                                 <div class="card-body lead d-flex align-items-end mt-1 py-0">
                                     <p class="mb-0">{{ product.name }}</p>
                                 </div>
                                 <div class="card-footer bg-info-dark border-0 py-0">
                                     <div class="row">
                                         <div class="col">
+                                            <!-- Display product price -->
                                             <p class="mb-0 text-left font-weight-bold">From £{{ product.price }}</p>
+                                            <!-- Display product category -->
                                             {% if product.category %}
                                                 <p class="small mt-b mb-0">
                                                     <a href="{% url 'products' %}?category={{ product.category }}" class="text-muted">
@@ -68,6 +72,7 @@
                                                     </a>
                                                 </p>
                                             {% endif %}
+                                            <!-- If the user is a superuser, allow to edit or delete the product -->
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3 text-muted">
                                                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
@@ -87,6 +92,7 @@
             </div>
         </div>
     </div>
+    <!-- Back to top button -->
     <div class="btt-button shadow-sm border border-info">
         <a class="btt-link d-flex h-100 text-decoration-none">
             <i class="fas fa-arrow-up text-info mx-auto my-auto"></i>
@@ -97,20 +103,24 @@
 {% block postloadjs %}
 {{ block.super }}
     <script type="text/javascript">
+        // Control the sort selector box
         $('#sort-selector').change(function() {
+            // Get the selection selected
             var selector = $(this);
             var currentUrl = new URL(window.location);
-
             var selectedVal = selector.val();
-            if(selectedVal != "reset"){
+
+            if (selectedVal != "reset"){
+                // Split the sorting and direction variables
                 var sort = selectedVal.split("_")[0];
                 var direction = selectedVal.split("_")[1];
-
                 currentUrl.searchParams.set("sort", sort);
                 currentUrl.searchParams.set("direction", direction);
 
+                // Update url to include the new sorting parameters
                 window.location.replace(currentUrl);
             } else {
+                // No sorting required, so revert to default
                 currentUrl.searchParams.delete("sort");
                 currentUrl.searchParams.delete("direction");
 
@@ -120,6 +130,7 @@
     </script>
 
     <script type="text/javascript">
+        // Back to top button functionality
         $('.btt-link').click(function(e) {
             window.scrollTo(0,0);
         })

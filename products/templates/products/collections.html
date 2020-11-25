@@ -5,6 +5,7 @@
     <div class="container-fluid mt-5 pt-5">
         <div class="row">
             <div class="col">
+                <!-- Page title -->
                 <h3 class="text-uppercase text-white text-center mb-1 mt-4">Collections</h3>
                 <hr class="w-25 bg-info text-info  mt-1 mb-2">
             </div>
@@ -12,27 +13,25 @@
         <div class="row page">
             <div class="product-container mx-3">
                 <div class="row mt-1 mb-2"></div>
-                <div class="row">                
+                <!-- Display 6 categories for the user to select: All photos, Architecture, Castles, Vehicles, Nature, Landscapes -->
+                <div class="row">              
                     {% for sku in skus %}
                         <div class="col-sm-6 col-md-6 col-lg-4 my-1">
                             <div class="card h-100 bg-info-dark py-1 border-0 align-items-center">
                                 {% for product in products %}
                                     {% if product.sku == sku %}
+                                        <!-- Display images for each collection with links to the relevant category selections -->
                                         {% for link in links %}
                                             {% if link.id == product.id %}
-                                                {% if product.image %}
-                                                    <a href="{% url link.link %}{{link.cat}}">
-                                                        <img src="{{ MEDIA_URL }}{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
-                                                    </a>
-                                                {% else %}
-                                                    <a href="">
-                                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top image-fluid">
-                                                    </a>
-                                                {% endif %}
+                                                <!-- Display the image -->
+                                                <a href="{% url link.link %}{{link.cat}}">
+                                                    <img src="{{ MEDIA_URL }}{{product.image }}" alt="{{ product.name }}" class="card-img-top image-fluid">
+                                                </a>
                                             {% endif %}
                                         {% endfor %}
                                                 <div class="card-body lead d-flex align-items-end mt-1 py-0">
                                                     {% if forloop.counter == 285 %}
+                                                        <!-- Rename the category for this to be all photos -->
                                                         <p class="mb-0 text-uppercase">All photos</p>
                                                     {% else %}
                                                         <p class="mb-0">{{ product.category|upper }}</p>

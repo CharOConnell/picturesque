@@ -3,7 +3,9 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """ Set up the default user profile form """
     class Meta:
+        """ Give the form fields """
         model = UserProfile
         exclude = ('user',)
 
@@ -20,13 +22,19 @@ class UserProfileForm(forms.ModelForm):
             'default_postcode': 'Postcode',
         }
 
+        # Set default auto focus to be on phone number field
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':
+                # For all fields except country
                 if self.fields[field].required:
+                    # Display placeholder with * if required
                     placeholder = f'{placeholders[field]} *'
                 else:
+                    # Display placeholder
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+            # Give the fields a class to style from
             self.fields[field].widget.attrs['class'] = 'profile-form-input'
+            # Remove labels
             self.fields[field].label = False

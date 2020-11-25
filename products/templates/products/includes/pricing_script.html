@@ -1,5 +1,7 @@
 <script type="text/javascript">
+    // Change the price of the item when a size is selected
     $('.size-selected').change(function(){
+        // Get the current size
         var sizeId = $(this).val();
         var pricing = $('#price-field').text();
         var sizing = {
@@ -10,13 +12,17 @@
             'xl': '18.99',
             'xxl': '20.99'
         };
+
+        // Setup for the loop
         sizingLength = Object.keys(sizing).length;
         sizesOffered = Object.keys(sizing);
         for (i=0; i<sizesOffered.length; i++) {
             var sizeOption = Object.keys(sizing)[i];
             if (sizeOption == sizeId){
+                // If the new size matches the size option
                 var newSize = Object.keys(sizing)[i];
                 var newPrice = Object.values(sizing)[i];
+                // Set the price displayed
                 $('#price-field').text(`£${newPrice}`);
             };
         };

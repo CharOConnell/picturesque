@@ -13,7 +13,7 @@ import stripe
 def webhook(request):
     """
     Listen for webhooks from Stripe
-    (taken mostly from stripe docs)
+    (taken mostly from the Stripe docs)
     """
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET
@@ -25,6 +25,7 @@ def webhook(request):
     event = None
 
     try:
+        # Try to construct a webhook event
         event = stripe.Webhook.construct_event(
             payload, sig_header, wh_secret
         )
@@ -35,7 +36,7 @@ def webhook(request):
         # Invalid signature
         return HttpResponse(status=400)
     except Exception as e:
-        # generic exception
+        # Generic exception
         return HttpResponse(content=e, status=400)
 
     # Setup a webhook handler
@@ -51,9 +52,9 @@ def webhook(request):
     # Get webhook type from Stripe
     event_type = event['type']
 
-    # If a handler matches it or use generic one normally
+    # If a handler matches it or use generic one as default
     event_handler = event_map.get(event_type, handler.handle_event)
 
-    # call that event handler with the event
+    # Call that event handler with the event
     response = event_handler(event)
     return response

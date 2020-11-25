@@ -16,7 +16,7 @@ def contact(request):
         # Formulate a body string
         body = f'An e-mail from {email_name}: \n {email_message}'
 
-        # Send an e-mail using Django's send_mail function
+        # Send an email using Django's send_mail function
         send_mail(
             email_subject,
             body,

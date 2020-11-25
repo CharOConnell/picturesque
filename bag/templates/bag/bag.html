@@ -6,6 +6,7 @@
     <div class="container-fluid page mt-5 pt-5">
         <div class="row">
             <div class="col">
+                <!-- Page title -->
                 <h3 class="text-uppercase text-white text-center mb-1 mt-4">Shopping Bag</h3>
                 <hr class="w-25 bg-info text-info mt-1 mb-2">
             </div>
@@ -13,34 +14,42 @@
         <div class="row mt-3">
             <div class="col page">
                 {% if bag_items %}
+                    <!-- A grid layout for smaller screen devices -->
                     <div class="d-block d-md-none">
                         <div class="row">
                             <div class="col">
+                                <!-- Show the bag total -->
                                 {% include 'bag/includes/bag_total.html' %}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
+                                <!-- Show the buttons to checkout or return to shopping -->
                                 {% include 'bag/includes/checkout_buttons.html' %}
                                 <p class="text-muted my-3">See below for a summary of your bag contents.</p>
                             </div>
                         </div>
                         {% for item in bag_items %}
                             <div class="row">
+                                <!-- Show the product image -->
                                 <div class="col-12 col-md-6 mb-2">
-                                    {% include 'bag/includes/product_image.html' %}
+                                    <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded">
                                 </div>
+                                <!-- Show the product info (sku, size, name) -->
                                 <div class="col-12 col-md-6 mb-2">
                                     {% include 'bag/includes/product_info.html' %}
                                 </div>
+                                <!-- Show the price per item and subtotal -->
                                 <div class="col-12 col-md-6 order-mb-last py-1">
                                     <p class="my-0 text-white"><small>Price: £{{ item.product_price|floatformat:2 }}</small></p>
                                     <p class="my-0 text-white">Subtotal: £{{ item.product_price | calc_subtotal:item.quantity | floatformat:2 }}</p>
                                 </div>
+                                <!-- Show the quantity and allow the user to modify it -->
                                 <div class="col-12 col-md-6">
                                     {% include 'bag/includes/quantity_form.html' %}
                                 </div>
                             </div>
+                            <!-- Horizontal rule to separate items -->
                             <div class="row">
                                 <div class="col">
                                     <hr class="w-25 bg-info text-info mt-1 mb-3 text-center">
@@ -53,8 +62,10 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <!-- Table for larger screen devices -->
                     <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
+                            <!-- Table headers -->
                             <thead class="text-white">
                                 <tr>
                                     <th scope="col">Product Info</th>
@@ -67,28 +78,35 @@
 
                             {% for item in bag_items %}
                                 <tr class="text-info">
+                                    <!-- Show the product image -->
                                     <td class="py-3 w-25 pl-0">
-                                        {% include 'bag/includes/product_image.html' %}
+                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded">
                                     </td>
+                                    <!-- Show the product info (sku, size, name) -->
                                     <td class="py-3">
                                         {% include 'bag/includes/product_info.html' %}
                                     </td>
+                                    <!-- Show the price per item -->
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product_price|floatformat:2 }}</p>
                                     </td>
+                                    <!-- Show the quantity and allow the user to modify it -->
                                     <td class="py-3">
                                         {% include 'bag/includes/quantity_form.html' %}
                                     </td>
+                                    <!-- Show the subtotal -->
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product_price | calc_subtotal:item.quantity | floatformat:2 }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
+                            <!-- Display the subtotal, delivery charges and total cost of the bag -->
                             <tr class="text-white">
                                 <td colspan="5" class="pt-5 text-right">
                                     {% include 'bag/includes/bag_total.html' %}
                                 </td>
                             </tr>
+                            <!-- Show the buttons to allow the user to checkout or continue shopping -->
                             <tr>
                                 <td colspan="5" class="text-right">
                                     {% include 'bag/includes/checkout_buttons.html' %}
@@ -97,6 +115,7 @@
                         </table>
                     </div>
                 {% else %}
+                    <!-- If the bag is empty, inform the user -->
                     <p class="lead mb-5 d-flex justify-content-center justify-content-lg-start">Your bag is empty.</p>
                     <a href="{% url 'collections' %}" class="btn shop-now-button btn-lg">
                         <span class="icon">

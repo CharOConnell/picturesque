@@ -1,7 +1,10 @@
+<!-- Part of the bag template showing the quantity of the item, with the buttons to ajust the quantity -->
+<!-- If you can get it to work, you can add in about the sizing adjustment part -->
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group mb-1">
         <div class="input-group">
+            <!-- Decrement the quantity in the bag -->
             <div class="input-group-prepend">
                 <button class="decrement-qty btn btn-sm btn-second rounded-left"
                     data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
@@ -10,9 +13,11 @@
                     </span>
                 </button>
             </div>
+            <!-- Show the quantity in the bag -->
             <input type="number" class="form-control form-control-sm text-info-dark border-info qty_input"
                 name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
                 id="id_qty_{{ item.item_id }}">
+            <!-- Increment the quantity in the bag -->
             <div class="input-group-append">
                 <button class="increment-qty btn btn-sm btn-second rounded-right"
                     data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
@@ -21,6 +26,7 @@
                     </span>
                 </button>
             </div>
+            <!-- Pass the size of the item to the backend -->
             <div class="input-group-size">
                 <input type="hidden" name="product_size" value="{{ item.product_size }}" readonly
                     class="form-control form-control-sm text-info-dark border-info rounded size_input mx-1">
@@ -39,5 +45,7 @@
         </div>
     </div>
 </form>
+<!-- Button to update any modifications to the bag -->
 <a class="update-link text-info"><small>Update</small></a>
+<!-- Button to remove this item from the bag -->
 <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.product_size }}"><small>Remove</small></a>

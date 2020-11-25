@@ -17,7 +17,7 @@ select option {
     color: #17a2b8 !important;
 }
 
-/* prevent history becoming huge */
+/* Prevent the order history from displaying too much data at once */
 .order-history {
     max-height: 416px; /* height of profile form + submit button */
     overflow-y: auto;

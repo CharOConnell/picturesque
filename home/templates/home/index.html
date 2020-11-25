@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block content %}
+    <!-- Have a background image as a landing page -->
     <div class="container-fluid" id="background-image-home">
         <div class="row">
+            <!-- Button to let the user view the store collections -->
             <div id="browse" class="d-flex col justify-content-center align-self-end">
                 <a href="{% url 'collections' %}" class="shop-now-button btn btn-lg py-3">browse collections now</a>
             </div>
@@ -13,12 +15,14 @@
     <div class="container-fluid" id="about">
         <div class="row">
             <div class="col">
+                <!-- Section title -->
                 <h3 class="text-uppercase text-white text-center mb-1 mt-3">About</h3>
                 <hr class="bg-info text-info w-25 mt-1 mb-2">
             </div>
         </div>
         <div class="row pb-3">
             <div class="col text-center text-info">
+                <!-- Welcome blurb for users -->
                 <h5 class="text-white text-uppercase py-2">Welcome to Picturesque!</h5>
                 <p>Here we want your home or office to show off your artistic grandure and so we have a wonderful collection of photographs you can order as prints to delightfully decorate your space.
                 I have been fortunate enough to have travelled to some amazing places and wanted to bring you all a little bit of these beautiful places from my photographs.</p>

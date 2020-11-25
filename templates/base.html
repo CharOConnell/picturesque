@@ -40,7 +40,8 @@
 </head>
 
 <body>
-	<header class="container-fluid fixed-top">
+	<!-- Create navbar -->
+    <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-info">
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
@@ -102,6 +103,7 @@
                 </nav>
             </div>
         </div>
+        <!-- Display delivery banner -->
         <div id="delivery-banner" class="row text-center">
             <div class="col bg-light text-dark">
                 <h6 class="my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h6>
@@ -113,13 +115,13 @@
 	    <div class="message-container">
             {% for message in messages %}
                 {% with message.level as level %}
-                    {% if level == 40 %} <!-- error -->
+                    {% if level == 40 %} <!-- Error -->
                         {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %} <!-- warning -->
+                    {% elif level == 30 %} <!-- Warning -->
                         {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %} <!-- success -->
+                    {% elif level == 25 %} <!-- Success -->
                         {% include 'includes/toasts/toast_success.html' %}
-                    {% else %} <!-- info -->
+                    {% else %} <!-- Informational -->
                         {% include 'includes/toasts/toast_info.html' %}
                     {% endif %}
                 {% endwith %}
@@ -133,6 +135,7 @@
     {% block content %}
     {% endblock %}
 
+    <!-- Create footer with links to social accounts -->
     <footer class="container-fluid pt-1 bg-info">
         <div class="row pt-2">
 			<div class="col text-center">
@@ -169,6 +172,7 @@
 
     {% block postloadjs %}
         <script type="text/javascript">
+            // Show the toasts
             $('.toast').toast('show');
         </script>
     {% endblock %}

@@ -2,6 +2,7 @@
     // Change the size of the product when clicked
     $('.input-group-size').change(function(e) {
         e.preventDefault();
+        // prevent the button being pressed whilst processing
         var chosenSize = $(this).find('.size_input').val();
         var itemId = $(this).find('select').attr('id');
         var oldSize = $(this).find('.old_size').val();

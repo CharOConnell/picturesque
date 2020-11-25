@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    // handle the plus and minus buttons outside of specified range
+    // Handle the plus and minus buttons outside of specified range
     function handleEnableDisableButton(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
@@ -30,6 +30,7 @@
         var itemId = $(this).data('item_id');
         handleEnableDisableButton(itemId);
     });
+
     // Decrement quantity when button is pressed
     $('.decrement-qty').click(function(e) {
         e.preventDefault();
