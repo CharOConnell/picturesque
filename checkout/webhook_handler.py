@@ -63,8 +63,10 @@ class Stripe_WH_Handler:
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
+                line1_addr = shipping_details.address.line1
+                profile.default_street_address1 = line1_addr
+                line2_addr = shipping_details.address.line2
+                profile.default_street_address2 = line2_addr
                 profile.default_town = shipping_details.address.city
                 profile.default_county = shipping_details.address.state
                 profile.default_postcode = shipping_details.address.postal_code
@@ -100,9 +102,10 @@ class Stripe_WH_Handler:
             # send confirmation email
             self._send_confirmation_email(order)
             # if it has been set to true as we have an order
-            return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                status=200)
+            aid1 = f'Webhook received: {event["type"]} | SUCCESS:'
+            aid2 = ' Verified order already in database'
+            aid = aid1 + aid2
+            return HttpResponse(content=aid, status=200)
         else:
             order = None
             try:
@@ -139,9 +142,10 @@ class Stripe_WH_Handler:
 
         # send confirmation email
         self._send_confirmation_email(order)
-        return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
-            status=200)
+        f81 = f'Webhook received: {event["type"]} | SUCCESS:'
+        f82 = ' Created order in webhook'
+        f8 = f81 + f82
+        return HttpResponse(content=f8, status=200)
 
     def handle_payment_intent_payment_failed(self, event):
         """ Handle a payment_intent.payment_failed webhook """

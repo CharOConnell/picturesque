@@ -41,11 +41,12 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+            queri = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queri)
 
     current_sorting = f'{sort}_{direction}'
     context = {
@@ -115,7 +116,10 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure that your inputs are valid.')
+            messages.error(
+                request,
+                'Failed to add product.'
+                ' Please ensure that your inputs are valid.')
     else:
         form = ProductForm()
 
@@ -142,7 +146,11 @@ def edit_product(request, product_id):
             messages.success(request, f'Successfully updated {product.name}.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, f'Failed to update {product.name}. Please ensure inputs are valid.')
+            aid1 = f'Failed to update {product.name}.'
+            aid2 = ' Please ensure inputs are valid.'
+            aid = aid1 + aid2
+            messages.error(
+                request, aid)
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}.')
