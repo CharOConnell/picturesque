@@ -236,10 +236,6 @@ input:-webkit-autofill:focus {
     h2 {
         font-size: 1.4rem !important;
     }
-
-    h4 {
-        font-size: 1.25rem !important;
-    } /* h5 styling */
     
     #search-bar {
         width: 75%;
@@ -247,22 +243,6 @@ input:-webkit-autofill:focus {
 
     .page {
         font-size: x-small;
-    }
-
-    .input-group .form-control {
-        width: 25%;
-        font-size: x-small;
-        text-align: center;
-        height: calc(1.5em + .75rem + 4px);
-    }
-
-    .input-group .form-control:not(.qty_input) {
-        margin: .5rem;
-    }
-
-    .input-group>.input-group-prepend>.btn,
-    .input-group>.input-group-append>.btn {
-        padding: .1rem;
     }
 
     .collections-button {
@@ -280,14 +260,20 @@ input:-webkit-autofill:focus {
     }
 }
 
-@media (max-width: 390px) {
+@media (min-width: 282px) and (max-width: 389px) {
     h2 {
         font-size: 1.75rem !important;
     } /* h3 sizing */
+}
 
+@media (max-width: 390px) {
     h3 {
         font-size: 1.5rem !important;
     } /* h4 sizing */
+
+    h4 {
+        font-size: 1.25rem !important;
+    } /* h5 styling */
 
     h5 {
         font-size: 1rem !important;
@@ -295,31 +281,7 @@ input:-webkit-autofill:focus {
 
     .navbar-toggler-icon {
         height: 1.5rem;
-    }
-
-    .update-link {
-        float: right;
-        margin: .2rem;
-    }
-
-    .remove-item {
-        margin: .2rem;
-    }    
-}
-
-
-/* Update bag quantity for xs screens */
-@media (min-width: 282px) and (max-width: 540px) {
-    .input-group .form-control {
-        width: 25%;
-        font-size: x-small;
-        text-align: center;
-        height: calc(1.5em + .75rem + 4px);
-    }
-
-    .size_input {
-        margin: .2rem;
-    }
+    } 
 }
 
 /* Update search bar for large screens */

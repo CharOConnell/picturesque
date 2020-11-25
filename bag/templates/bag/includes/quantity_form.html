@@ -1,0 +1,43 @@
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+    {% csrf_token %}
+    <div class="form-group mb-1">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-sm btn-second rounded-left"
+                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                    <span>
+                        <i class="fas fa-minus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            <input type="number" class="form-control form-control-sm text-info-dark border-info qty_input"
+                name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
+                id="id_qty_{{ item.item_id }}">
+            <div class="input-group-append">
+                <button class="increment-qty btn btn-sm btn-second rounded-right"
+                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                    <span>
+                        <i class="fas fa-plus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="input-group-size">
+                <input type="hidden" name="product_size" value="{{ item.product_size }}" readonly
+                    class="form-control form-control-sm text-info-dark border-info rounded size_input mx-1">
+                <!--
+                <select class="form-control form-control-sm text-info-dark border-info rounded size_input mx-1"
+                    name="product_size" id="id_size_{{ item.item_id}}" data-product_new_size="">
+                    {% for size in sizes %}
+                        {% if size == item.product_size %}
+                            <option class="old_size" value="{{ size }}" selected>{{ size|upper }}</option>
+                        {% else %}
+                            <option value="{{ size }}">{{ size|upper }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>-->
+            </div>
+        </div>
+    </div>
+</form>
+<a class="update-link text-info"><small>Update</small></a>
+<a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.product_size }}"><small>Remove</small></a>
