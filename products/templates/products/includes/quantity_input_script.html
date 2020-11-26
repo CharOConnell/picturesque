@@ -24,6 +24,7 @@
     // Increment quantity when button is pressed
     $('.increment-qty').click(function(e) {
         e.preventDefault();
+        // Prevent the button being pressed whilst processing
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue + 1);
