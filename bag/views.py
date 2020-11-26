@@ -88,6 +88,7 @@ def remove_from_bag(request, item_id):
         product = get_object_or_404(Product, pk=item_id)
         size = request.POST['product_size']
         bag = request.session.get('bag', {})
+
         # Delete the size and product from the bag
         del bag[item_id]['items_by_size'][size]
         if not bag[item_id]['items_by_size']:
