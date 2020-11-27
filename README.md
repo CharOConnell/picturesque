@@ -230,10 +230,65 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
 
 ## Testing
 ### Full Testing
+Testing was completed during the building of the site and some final checks at the end of the project.
+
+Testing the contact form:
+- Attempt to submit an empty form to check an error message for the designated fields appears
+- Check that email address box requires an @ and produces the correct error message
+
+Testing the payment form:
+- Attempt to add an incorrect Stripe payment number and check that the error message is shown in the box below
+- Attempt to submit an entry anywhere in the form to check that the error message is shown
+
+Testing for the bag adjustments:
+- The changing size option was tested using python testing separately then put into the contexts file
+- Multiple sizes with multiple items were tried to ensure that no issues were seen
+- An id mix up occured, but this has been fixed to ensure that the correct item is adjusted
+
+Testing the email using Django send_mail:
+- After initial setting up, the email was sent to the terminal until the emails were set up in the deployment phase
+- Checked that an email was sent from my account with the correct template
+
+Testing the search form:
+- Attempt to submit an empty form to check an error message for the designated fields appears
+- Check the functionality of the queries being sent to the database
+- Check that the results section show up "no results" if none are found
+- Check that the number of results is shown
+
 ### Validators
+- HTML validity was checked using the online validator [W3C Markup Validator](validator.w3.org)
+    - Errors were thrown when the html-lang and head elements were not set in template files
+    - Errors also thrown when the Django template tags were assigned within the html
+- CSS was checked uing the online validator [W3C CSS Jigsaw Validator](http://www.css-validator.org/)
+    - No errors were thrown, but warnings were advised about the webkit-transition variables used to colour the autofill boxes in forms throughout the site
+- JS was checked using the online validator [JSHint](https://jshint.com/)
+    - Errors were thrown with the 'template literal syntax' used
+    - Errors were thrown with the use of the $ identifier as it was not recognised in JSHint
+- Python was checked to be to the flake8 standard and linted as per this standard
+    - Linting was not completed for Django generated migrations
+
 ### Screen Sizes
+- The website was checked for all the screen sizes available on Chrome Developer Tools
+- Special attention was shown for the smallest mobile screen sizes as the fonts were too large, and the navbar had to be styled differently
+- Bag summary was changed for the smaller screen sizes for ease of viewing
+
 ### Browser Details
+- All development was done within Chrome browser
+- Mozilla was checked and the same functionality was found 
+- Safari was also checked and the same functionaly was found, but only in mobile view
+
 ### Bugs Found
+There were a few bugs found within the project with only two minor outstanding issue remaining unfixed.
+
+Fixed Bugs:
+- Google autofill boxes colours are manually changed within the CSS to overwrite the standard colours from Google
+- Added the sizing prices into several backend files to ensure the variable prices are covered within the project
+- Changing the size of the product in the bag template. At first you could not change the size of the product but as the project progressed, it felt necessary to have this option, but indexing caused issues at first and the sizing JavaScript forced the code to be positioned in the contexts.py rather than the views.py
+
+Remaining Bugs:
+- The update button does not pass both product size and quantity to the backend, so pressing the update button updates one at a time
+- The size update to the toast gives the wrong product size when multiple adjustments have been made
+
 
 ## Deployment
 This project has been deployed using Heroku.
