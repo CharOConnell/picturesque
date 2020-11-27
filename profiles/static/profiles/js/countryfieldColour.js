@@ -13,5 +13,5 @@ $('#id_default_country').change(function() {
     } else {
         // Colour the input white
         $(this).css('color', '#fff');
-    };
+    }
 });

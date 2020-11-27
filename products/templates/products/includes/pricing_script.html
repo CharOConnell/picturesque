@@ -3,7 +3,6 @@
     $('.size-selected').change(function(){
         // Get the current size
         var sizeId = $(this).val();
-        var pricing = $('#price-field').text();
         var sizing = {
             'xs': '7.99',
             's': '10.99',
@@ -20,11 +19,10 @@
             var sizeOption = Object.keys(sizing)[i];
             if (sizeOption === sizeId){
                 // If the new size matches the size option
-                var newSize = Object.keys(sizing)[i];
                 var newPrice = Object.values(sizing)[i];
                 // Set the price displayed
                 $('#price-field').text(`£${newPrice}`);
-            };
-        };
+            }
+        }
     });
 </script>

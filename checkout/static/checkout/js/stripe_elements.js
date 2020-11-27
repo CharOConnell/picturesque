@@ -47,11 +47,11 @@ card.on('change', function(event) {
         $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
-    };
+    }
 });
 
 // Handle form submit
-var form = document.getElementById('payment-form')
+var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
@@ -124,8 +124,8 @@ form.addEventListener('submit', function(ev) {
                 // The payment has been processed
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
-                };
-            };
+                }
+            }
         });
     }).fail(function() {
         // Load the page again to show the error message if it fails without charging user

@@ -51,7 +51,7 @@ input[name='q']:active {
 
 input[name='q']:-webkit-autofill,
 input[name='q']:-webkit-autofill:focus {
-  border: 1px solid 17a2b8;
+  border: 1px solid #17a2b8;
   -webkit-text-fill-color: #003333;
   box-shadow: 0 1px 1px 0 #cfd7df;
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
@@ -234,7 +234,7 @@ input[name='q']:-webkit-autofill:focus {
 /* from https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  border: 1px solid 17a2b8;
+  border: 1px solid #17a2b8;
   -webkit-text-fill-color: #fff;
   box-shadow: 0 1px 1px 0 #cfd7df;
   -webkit-box-shadow: 0 0 0px 1000px #003333 inset;
