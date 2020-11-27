@@ -52,42 +52,53 @@ def bag_contents(request):
                             new_bag_item_qty.append(quantity)
                             new_bag_item_id.append(item_id)
                             new_bag_item.append(old_size)
-                            new_bag_item_qty.append(0)
+                            new_bag_item_qty.append(-quantity)
 
                 # See if there are any of the size in old bag and remove
+                icount = 0
+                for old_items in old_bag_item:
+                    jcount = 0
+                    for new_items in new_bag_item:
+                        if (old_items == new_items) & (old_bag_item_id[
+                                icount] == new_bag_item_id[jcount]):
+                            qty_old = old_bag_item_qty[icount]
+                            new_bag_item_qty[jcount] += qty_old
+                            old_bag_item_qty[icount] = 0
+                        jcount += 1
+                    icount += 1
+
                 jcount = 0
-                for qty in new_bag_item_qty:
-                    if qty == 0:
-                        new_bag_item.remove(new_bag_item[jcount])
-                        new_bag_item_qty.remove(new_bag_item_qty[jcount])
-                        new_bag_item_id.remove(new_bag_item_id[jcount])
+                for qty in old_bag_item_qty:
+                    if qty <= 0:
+                        old_bag_item_qty.remove(old_bag_item_qty[jcount])
+                        old_bag_item_id.remove(old_bag_item_id[jcount])
+                        old_bag_item.remove(old_bag_item[jcount])
                     jcount += 1
 
                 icount = 0
-                for old_item in old_bag_item:
-                    for item in new_bag_item:
-                        if old_item == item:
-                            old_bag_item.remove(old_item)
-                            old_bag_item_qty.remove(old_bag_item_qty[icount])
-                            old_bag_item_id.remove(old_bag_item_id[icount])
+                for qty in new_bag_item_qty:
+                    if qty <= 0:
+                        new_bag_item_qty.remove(new_bag_item_qty[icount])
+                        new_bag_item_id.remove(new_bag_item_id[icount])
+                        new_bag_item.remove(new_bag_item[icount])
                     icount += 1
 
+                # Combine the new and old into one bag
+                temp_bag_items = old_bag_item + new_bag_item
+                temp_bag_qty = old_bag_item_qty + new_bag_item_qty
+                temp_bag_id = old_bag_item_id + new_bag_item_id
+
+                # Create a new id for the bag
+                for id in temp_bag_id:
+                    new_bag[id] = {'items_by_size': {}}
+
                 # Create the new bag
-                kcount = 0
-                for item in old_bag_item:
-                    new_bag[old_bag_item_id[kcount]] = {'items_by_size': {}}
-                    lcount = 0
-                    for new_item in new_bag_item:
-                        if old_bag_item_id[kcount] == new_bag_item_id[lcount]:
-                            new_bag[old_bag_item_id[kcount]
-                                    ]['items_by_size'
-                                      ][new_bag_item[lcount]
-                                        ] = new_bag_item_qty[lcount]
-                            new_bag[old_bag_item_id[kcount]
-                                    ]['items_by_size'
-                                      ][old_bag_item[kcount]
-                                        ] = old_bag_item_qty[kcount]
-                    kcount += 1
+                icount = 0
+                for items in temp_bag_items:
+                    if temp_bag_qty[icount] != 0:
+                        new_bag[temp_bag_id[icount]][
+                            'items_by_size'][items] = temp_bag_qty[icount]
+                    icount += 1
 
                 # Reassign the new bag to be the bag
                 bag = new_bag
