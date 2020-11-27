@@ -49,6 +49,15 @@ input[name='q']:active {
     color: #003333;
 }
 
+input[name='q']:-webkit-autofill,
+input[name='q']:-webkit-autofill:focus {
+  border: 1px solid 17a2b8;
+  -webkit-text-fill-color: #003333;
+  box-shadow: 0 1px 1px 0 #cfd7df;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 #search-bar {
     max-width: 80%;
 }
