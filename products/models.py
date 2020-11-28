@@ -10,7 +10,7 @@ class Category(models.Model):
     # Set the model fields
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254,
-                                     null=True, blank=True)
+                                     blank=True)
 
     def __str__(self):
         """ Return the category name when called """
