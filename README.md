@@ -1,32 +1,32 @@
 # Picturesque
 ## Full Stack Frameworks with Django Milestone Project - Code Institute
 ### Table of Contents:
-1. [Project Purpose](#project-purpose)
-2. [User Experience](#user-experience)
+1. [Project Purpose](#1.-project-purpose)
+2. [User Experience](#2.-user-experience)
     - [Strategy](#strategy)
     - [Scope](#scope)
     - [Structure](#structure)
     - [Skeleton](#skeleton)
     - [Surface](#surface)
-3. [Features](#features)
+3. [Features](#3.-features)
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
-4. [Technologies Used](#technologies-used)
-5. [Testing](#testing)
-    - [Full Testing](#full-testing)
+4. [Technologies Used](#4.-technologies-used)
+5. [Testing](#5.-testing)
+    - [Automated Testing](#automated-testing)
+    - [Manual Testing](#manual-testing)
     - [Validators](#validators)
     - [Screen Sizes](#screen-sizes)
     - [Browser Details](#browser-details)
     - [Bugs Found](#bugs-found)
-6. [Deployment](#deployment)
-    - [Deploying via Heroku](#deploying-via-heroku)
-    - [Deploying locally](#deploying-locally)
-7. [Credits](#credits)
+6. [Running The App](#6.-running-the-app)
+7. [Deployment Via Heroku](#7.-deployment-via-heroku)
+8. [Credits](#8.-credits)
     - [Content](#content)
     - [Media](#media)
     - [Acknowledgements](#acknowledgements)
 
-## Project purpose
+## 1. Project Purpose
 Picturesque is an e-commerce website built to sell prints of photographs displayed on the site.
 The prints can be chosen to be in an array of sizes with prices which reflect the change of size.
 The photographs showcased are from my personal holiday collection.
@@ -37,7 +37,7 @@ The user is able to look at a specific photograph in more details before choosin
 There is a user profile page where the user is able to view their order history and can update their saved details.
 Finally, there is a contact page where there are FAQs about the products and a contact form for the users to contact the site owner directly.
 
-## User Experience
+## 2. User Experience
 ### Strategy
 The site user stories are listed below.
 - Navigation and Viewing:
@@ -112,7 +112,7 @@ The schema is as follows:
 |            | friendly_name |
 
 ### Skeleton
-The mockups for the website were created using GNU Pencil software. The full versions can be found [here](media/mockups/wireframe.pdf)
+The mockups for the website were created using GNU Pencil software. The full versions can be found [here](media/mockups/mockups.pdf)
 
 For ease of viewing, below are the main mockups:
 
@@ -185,7 +185,7 @@ The information should be easily picked out from the background colour, and the 
 The colour scheme is fairly muted which would appeal hopefully to users of all ages without any abrupt or harsh colours.
 
 
-## Features
+## 3. Features
 - This website is built using Django with added Bootstrap frameworks, CSS, JavaScript where applicable.
 - The functionality of bootstrap classes and the flexible framework it provides allowed for an easily structured webpage.
 - JavaScript and JQuery additions to selected buttons allowed for posting form updates to the backend Python scripts and other page updates.
@@ -203,7 +203,7 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
 - Price selection dropdown menu for the inputting of new products into the database
 - Review functionality for the products from users after purchasing
 
-## Technologies Used
+## 4. Technologies Used
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) 
     - The project uses **HTML5** as a base language for the webpage
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
@@ -228,8 +228,10 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
     - The project handles payments through **Stripe**
 
 
-## Testing
-### Full Testing
+## 5. Testing
+### Automated Testing
+
+### Manual Testing
 Testing was completed during the building of the site and some final checks at the end of the project.
 
 Testing the contact form:
@@ -290,53 +292,53 @@ Remaining Bugs:
 - The size update to the toast gives the wrong product size when multiple adjustments have been made
 
 
-## Deployment
-This project has been deployed using Heroku.
+## 6. Running The App
+To run this app locally, you will need to clone the existing repository first by doing the following:
+- Navigate to the repository url: https://github.com/CharOConnell/picturesque
+- Click on "Clone or Download"
+- To clone the repository using HTTPS, under "Clone with HTTPS", copy the link inside the box
+- To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then copy the link inside the box
+- Open the Git Bash
+- Change the current working directory to the location where you want to clone the directory
+- Type git clone, and then paste the URL you copied before
+    - $ git clone https://github.com/CharOConnell/picturesque
+- Press Enter and your clone will be created
+- Navigate into your new project "picturesque" within your python virtual environment
+- Install the requirements into your new directory by running the following code:
+    - $ pip3 install requirements.txt
+- Provide the values into your env.py like the env_sample.txt which is included in this app
+    - Make sure that these values are not committed to version control
+- Now you can run locally by running:
+    - $ python3 manage.py runserver
 
-### Deploying via Heroku
+## 7. Deployment Via Heroku
 The process involved consists of:
+- Running the app locally
 - Adding regularly to the Git branch, committing with comments each time
 - Pushing this Git branch to GitHub
 - Pushing it to the Heroku branch
 - Creating the necessary Procfile and requirements.txt files
 - Deploying to the Heroku webpage
-- Adding security to the MongoDB database, and linking any addresses and ports to the Heroku app
 
-Pushing to Heroku from Git:
-- I ensured that the Procfile and requirements.txt were saved within the repository
-- Within Heroku, I created an app for the page
-- All commits were finalised and pushed to the GitHub repository
-- The following was entered inside the Git bash terminal:
+In order to push to Heroku from Git:
+- Make sure that there is a Procfile and requirements.txt files within the repository
+- Ensure any environment variables are not within version control
+- Create your own Heroku app to deploy to
+- Within the app, you will need to add the configuration files listed in the file env_heroku_sample.txt
+- Ensure that you have your env.py setup within your local directory using the env_sample.txt file
+    - For the STRIPE_SECRET_KEY and STRIPE_PUBLIC_KEY variables, these will be the same for both environmental and heroku variables
+    - Note that the STRIPE_WH_KEY is related directly to the particular endpoint of the webhook on Stripe
+    - Note also that the SECRET_KEY is different for both environmental and heroku variables and can be created using a Django secret key generator
+- Finalise all commits and push to the GitHub repository
+- To push to Heroku, you must enter the following inside the Git bash terminal:
     - $ heroku login
     - $ heroku apps
-    - $ heroku git:remote -a picturesque
+    - $ heroku git:remote -a picturesque-prints
     - $ git push heroku master
 - The webpage was then deployed to Heroku
 
-### Deploying locally
-To deploy this project locally, you will need to do the following:
-- Clone the GitHub repository:
-    - Navigate to the repository url: https://github.com/CharOConnell/picturesque 
-    - Click on "Clone or Download"
-    - To clone the repository using HTTPS, under "Clone with HTTPS", copy the link inside the box
-    - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then copy the link inside the box
-    - Open the Git Bash
-    - Change the current working directory to the location where you want to clone the directory
-    - Type git clone, and then paste the URL you copied before
-        - $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-    - Press Enter and your clone will be created
-- Once any changes are made, you will need to push to the Heroku server
-- Make sure that there is a Procfile and requirements.txt file within the repository
-- Ensure you have created your own Heroku app to deploy to 
-- To push to Heroku, you must enter the following inside the Git bash terminal:
-    - $ heroku login (you will be asked to login with your username and password)
-    - $ heroku apps
-    - $ heroku git:remote -a app-name-of-heroku-app
-    - $ git push heroku master
-- Your project will the be published to Heroku
 
-
-## Credits
+## 8. Credits
 ### Content
 All text and descriptions on this website have been written by me.
 
