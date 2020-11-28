@@ -8,10 +8,10 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     # Set the model fields
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254, blank=False)
     friendly_name = models.CharField(max_length=254,
                                      blank=True)
-    image = models.ImageField(null=False, blank=False)
+    image = models.ImageField(blank=False)
 
     def __str__(self):
         """ Return the category name when called """
@@ -27,12 +27,12 @@ class Product(models.Model):
     # Set the model fields
     category = models.ForeignKey('Category', null=True, blank=False,
                                  on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=False, blank=False)
-    name = models.CharField(max_length=254)
+    sku = models.CharField(max_length=254, blank=False)
+    name = models.CharField(max_length=254, blank=False)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2,
                                 default=7.99)
-    image = models.ImageField(null=False, blank=False)
+    image = models.ImageField(blank=False)
 
     def __str__(self):
         """ Return the product name when called """

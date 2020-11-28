@@ -98,18 +98,7 @@ The main pages are:
 - The order confirmation page allows the user to go back shopping after looking over a review of their latest purchase
 - The user profile page shows the personal information saved and order history of the user which can be viewed at any point
 
-The schema is as follows:
-| Collection | Fields        |
-|------------|---------------|
-| Products   | id            |
-|            | name          |
-|            | description   |
-|            | sku           |
-|            | category      |
-|            | image         |
-| Category   |  id           |
-|            | name          |
-|            | friendly_name |
+The entity-relationship diagram was created using [dbdiagram.io](https://dbdiagram.io/home) and can be found [here](media/entity-relationship-diagrams/entity-relationship-diagram.pdf)
 
 ### Skeleton
 The mockups for the website were created using GNU Pencil software. The full versions can be found [here](media/mockups/mockups.pdf).
