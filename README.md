@@ -112,72 +112,7 @@ The schema is as follows:
 |            | friendly_name |
 
 ### Skeleton
-The mockups for the website were created using GNU Pencil software. The full versions can be found [here](media/mockups/mockups.pdf)
-
-For ease of viewing, below are the main mockups:
-
-#### Mobile Screens
-- Mobile Home:
-
-![Mobile home page wireframe](media/mockups/mobile_home.png)
-- Mobile Collections:
-
-![Mobile collections page wireframe](media/mockups/mobile_collections.png)
-- Mobile Products:
-
-![Mobile products page wireframe](media/mockups/mobile_products.png)
-- Mobile Product Details:
-
-![Mobile product details page wireframe](media/mockups/mobile_product_details.png)
-- Mobile Contact:
-
-![Mobile contact page wireframe](media/mockups/mobile_contact.png)
-- Mobile Bag:
-
-![Mobile cart page wireframe](media/mockups/mobile_cart.png)
-- Mobile Checkout:
-
-![Mobile checkout page wireframe](media/mockups/mobile_checkout.png)
-- Mobile Checkout Success:
-
-![Mobile checkout success page wireframe](media/mockups/mobile_checkout_success.png)
-- Mobile Login or Sign Up:
-
-![Mobile login or sign up page wireframe](media/mockups/mobile_log_in_sign_up.png)
-- Mobile Profile:
-
-![Mobile profile page wireframe](media/mockups/mobile_profile.png)
-#### Larger Screens
-- Home:
-
-![Home page wireframe](media/mockups/home.png)
-- Collections:
-
-![Collections page wireframe](media/mockups/collections.png)
-- Products:
-
-![Products page wireframe](media/mockups/products.png)
-- Product Details:
-
-![Product details page wireframe](media/mockups/product_details.png)
-- Contact:
-
-![Contact page wireframe](media/mockups/contact.png)
-- Bag:
-
-![Cart page wireframe](media/mockups/cart.png)
-- Checkout:
-
-![Checkout page wireframe](media/mockups/checkout.png)
-- Checkout Success:
-
-![Checkout success page wireframe](media/mockups/checkout_success.png)
-- Login or Sign Up:
-
-![Login or sign up page wireframe](media/mockups/login_sign_up.png)
-- Profile:
-
-![Profile page wireframe](media/mockups/profile.png)
+The mockups for the website were created using GNU Pencil software. The full versions can be found [here](media/mockups/mockups.pdf).
 
 ### Surface
 The dark turquoise, light turquoise and white colour scheme was designed to feel chic yet intuitive and user-friendly.

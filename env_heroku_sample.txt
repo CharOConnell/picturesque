@@ -1,0 +1,10 @@
+AWS_ACCESS_KEY_ID = "personal access key from AWS account"
+AWS_SECRET_ACCESS_KEY = "secret access key from the AWS account"
+DATABASE_URL = "url related to your bucket in AWS"
+EMAIL_HOST_PASSWORD = "password provided from setting up email via gmail"
+EMAIL_HOST_USER = "gmail account being used for emailing"
+STRIPE_WH_SECRET = "secret key from the associated Stripe webhook endpoint - MUST BE DIFFERENT TO ENVIRONMENTAL VARIABLE OF SAME NAME"
+STRIPE_SECRET_KEY = "secret key from the Stripe API being used"
+STRIPE_PUBLIC_KEY = "public key from the Stripe API being used"
+SECRET_KEY = "django secret key from a django secret key generator - MUST BE DIFFERENT TO ENVIRONMENTAL VARIABLE OF SAME NAME"
+USE_AWS = True
