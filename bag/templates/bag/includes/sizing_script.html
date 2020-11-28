@@ -4,11 +4,10 @@
         e.preventDefault();
         // Prevent the button being pressed whilst processing
         var chosenSize = $(this).find('.size_input').val();
-        var itemId = $(this).find('select').attr('id');
-        var oldSize = $(this).find('.old_size').val();
+        var oldSize = $('[name=old_product_size]').attr('value');
         var newSize = oldSize.concat('_').concat(chosenSize);
 
         // Update the bag value to have both old and new values
-        $(`#${itemId} option`).attr('value', newSize);
+        $(this).find('input[name=product_size]').attr('value', newSize);
     });
 </script>

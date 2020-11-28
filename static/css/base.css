@@ -184,6 +184,12 @@ input[name='q']:-webkit-autofill:focus {
     overflow-y: auto;
 }
 
+/* --------------------------------------------- Bag sizings */
+.input-group .qty_input {
+    color: #fff;
+}
+
+
 /* --------------------------------------------- Toasts */
 .custom-toast {
     overflow: visible;

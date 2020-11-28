@@ -3,12 +3,16 @@ from django.shortcuts import (
 )
 from django.contrib import messages
 from products.models import Product
+from .contexts import prices
 
 
 def view_bag(request):
     """ Render the shopping bag page """
 
-    return render(request, 'bag/bag.html')
+    context = {
+        'prices': prices,
+    }
+    return render(request, 'bag/bag.html', context)
 
 
 def add_to_bag(request, item_id):
