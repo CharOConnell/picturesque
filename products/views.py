@@ -89,32 +89,12 @@ def product_detail(request, product_id):
 
 def collections(request):
     """ A view to show the collections page """
-    products = Product.objects.all()
-    # Input the selected image details
-    skus = [
-        'na100-046',
-        'ar010-017',
-        'ca020-026',
-        've030-016',
-        'la060-044',
-        'na090-028',
-    ]
-
-    # Create links for the categories
-    links = [
-        {'id': 285, 'link': 'products',
-         'cat': '?category=architecture,castles,vehicles,landscapes,nature'},
-        {'id': 17, 'link': 'products', 'cat': '?category=architecture'},
-        {'id': 82, 'link': 'products', 'cat': '?category=castles'},
-        {'id': 129, 'link': 'products', 'cat': '?category=vehicles'},
-        {'id': 176, 'link': 'products', 'cat': '?category=landscapes'},
-        {'id': 267, 'link': 'products', 'cat': '?category=nature'}
-    ]
+    categories = Category.objects.all()
+    all_photo = 'P1013936.JPG'
 
     context = {
-        'products': products,
-        'skus': skus,
-        'links': links,
+        'categories': categories,
+        'all': all_photo,
     }
     template = 'products/collections.html'
 

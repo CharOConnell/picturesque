@@ -11,6 +11,7 @@ class Category(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254,
                                      blank=True)
+    image = models.ImageField(null=False, blank=False)
 
     def __str__(self):
         """ Return the category name when called """
