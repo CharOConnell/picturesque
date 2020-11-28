@@ -9,6 +9,7 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profiles.models import UserProfile
+from bag.contexts import prices
 
 
 class Order(models.Model):
@@ -99,14 +100,6 @@ class OrderLineItem(models.Model):
         """ Override the original save method to set the order
         number if it has not already been set """
         # Update the prices according to size
-        prices = {
-            'xs': 7.99,
-            's': 10.99,
-            'm': 12.99,
-            'l': 15.99,
-            'xl': 18.99,
-            'xxl': 20.99,
-        }
         self.lineitem_total = prices[self.product_size] * self.quantity
         super().save(*args, **kwargs)
 

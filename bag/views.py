@@ -7,21 +7,8 @@ from products.models import Product
 
 def view_bag(request):
     """ Render the shopping bag page """
-    # sizing and context unnecessary if it doesn't function
-    sizing = {
-        'xs': 'XS - 4"x6"',
-        's': 'S - 8"x10"',
-        'm': 'M - 11"x14"',
-        'l': 'L - 16"x20"',
-        'xl': 'XL - 24"x36"',
-        'xxl': 'XXL - 30"x40"',
-    }
 
-    context = {
-        'sizes': sizing,
-    }
-
-    return render(request, 'bag/bag.html', context)
+    return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):

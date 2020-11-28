@@ -3,23 +3,28 @@
     $('.size-selected').change(function(){
         // Get the current size
         var sizeId = $(this).val();
-        var sizing = {
-            'xs': '7.99',
-            's': '10.99',
-            'm': '12.99',
-            'l': '15.99',
-            'xl': '18.99',
-            'xxl': '20.99'
-        };
+        // Get the template value for prices
+        var newSizes = $('.product_size_chart').attr('value').slice(1,-1).split(/: | /,);
+        var sizingKeys = [];
+        var sizingVals = [];
 
-        // Setup for the loop
-        sizingLength = Object.keys(sizing).length;
-        sizesOffered = Object.keys(sizing);
-        for (i=0; i<sizesOffered.length; i++) {
-            var sizeOption = Object.keys(sizing)[i];
+        // Reformat the template string to give sizes and prices
+        for (i=0; i<newSizes.length; i++) {
+            if (i%2 === 0) {
+                var newKey = newSizes[i].slice(1,-1);
+                sizingKeys.push(newKey);
+            } else {
+                var newVal = newSizes[i].slice(0,-1);
+                sizingVals.push(newVal);
+            }
+        }
+
+        // Change the price field at the top of the page
+        for (i=0; i<sizingKeys.length; i++) {
+            var sizeOption = sizingKeys[i];
             if (sizeOption === sizeId){
                 // If the new size matches the size option
-                var newPrice = Object.values(sizing)[i];
+                var newPrice = sizingVals[i];
                 // Set the price displayed
                 $('#price-field').text(`£${newPrice}`);
             }

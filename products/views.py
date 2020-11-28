@@ -6,6 +6,7 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category
 from .forms import ProductForm
+from bag.contexts import prices
 
 
 def all_products(request):
@@ -79,6 +80,7 @@ def product_detail(request, product_id):
 
     context = {
         'product': product,
+        'prices': prices
     }
 
     # Render the product detail page

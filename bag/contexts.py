@@ -4,14 +4,7 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 
 
-def bag_contents(request):
-    """ Give the bag contents details about the products """
-    bag_items = []
-    total = 0
-    product_count = 0
-    bag = request.session.get('bag', {})
-
-    prices = {
+prices = {
         'xs': 7.99,
         's': 10.99,
         'm': 12.99,
@@ -19,6 +12,14 @@ def bag_contents(request):
         'xl': 18.99,
         'xxl': 20.99,
     }
+
+
+def bag_contents(request):
+    """ Give the bag contents details about the products """
+    bag_items = []
+    total = 0
+    product_count = 0
+    bag = request.session.get('bag', {})
 
     # Allow for the changeable pricing/sizing on the website
     new_bag_item = []
