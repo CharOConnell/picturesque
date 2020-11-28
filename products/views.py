@@ -106,7 +106,7 @@ def collections(request):
 def add_product(request):
     """ Add a new product """
     # Display error message to non-superusers
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Sorry, only the website owner can do that.')
         return redirect(reverse('home'))
 
@@ -142,7 +142,7 @@ def add_product(request):
 def edit_product(request, product_id):
     """ Edit an existing product """
     # Display error to non-superusers
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Sorry, only the website owner can do that.')
         return redirect(reverse('home'))
 
@@ -184,7 +184,7 @@ def edit_product(request, product_id):
 def delete_product(request, product_id):
     """ Delete an existing product """
     # Display error message to non-superusers
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Sorry, only the website owner can do that.')
         return redirect(reverse('home'))
 
