@@ -78,8 +78,6 @@ class TestOrderForm(TestCase):
             'county': 'Berkshire',
             'postcode': 'RG9',
             'country': 'Australia'})
-        print(form.required)
-        print(self.fields.required)
         self.assertTrue(form.is_valid())
 
     def test_town_is_required(self):
@@ -137,3 +135,10 @@ class TestOrderForm(TestCase):
         self.assertIn('country', form.errors.keys())
         self.assertEqual(form.errors[
             'country'][0], 'This field is required.')
+
+    def test_fields_are_explicit_in_form_metaclass(self):
+        form = OrderForm()
+        self.assertEqual(form.Meta.fields, (
+            'full_name', 'email', 'phone_number',
+            'street_address1', 'street_address2',
+            'town', 'county', 'postcode', 'country'))
