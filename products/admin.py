@@ -25,6 +25,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
+        'category_image',
     )
 
 
