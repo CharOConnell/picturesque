@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="row mt-3 page">
-            <div class="col">
+            <div class="col-12 col-md-8 offset-md-2">
                 <!-- Display an empty form of the product model -->
                 <form method="POST" action="{% url 'add_product' %}" class="form admin-product-form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
