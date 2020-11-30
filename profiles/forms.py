@@ -28,13 +28,8 @@ class UserProfileForm(forms.ModelForm):
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':
-                # For all fields except country
-                if self.fields[field].required:
-                    # Display placeholder with * if required
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    # Display placeholder
-                    placeholder = placeholders[field]
+                # Display placeholder
+                placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             # Give the fields a class to style from
             self.fields[field].widget.attrs['class'] = 'profile-form-input'
