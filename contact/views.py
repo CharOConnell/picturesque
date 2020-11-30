@@ -14,7 +14,9 @@ def contact(request):
         email_subject = request.POST['subject']
         email_message = request.POST['message_content']
         # Formulate a body string
-        body = f'An e-mail from {email_name}: \n {email_message}'
+        body1 = 'From Picturesque Prints. \n '
+        body2 = f'An e-mail from {email_name}: \n {email_message}'
+        body = body1 + body2
 
         # Send an email using Django's send_mail function
         send_mail(
