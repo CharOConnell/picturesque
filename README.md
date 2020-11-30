@@ -154,6 +154,23 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
 
 ## 5. Testing
 ### Automated Testing
+Automated tests are written within test cases within each of the apps. Unfortunately, I ran out of time before the project submission to complete this in full, but there are some tests done throughout the application.
+The apps each have test_views.py, test_models.py and test_forms.py (when applicable for each app).
+
+In order to run these tests, type the following into the Git bash terminal:
+- $ python3 manage.py test
+
+To see the coverage in a report of the entire application, type in the following:
+- $ coverage run --source=contact,bag,checkout,home,products,profiles manage.py test
+- $ coverage report
+
+To see the coverage in an html report of the entire application, type in the following:
+- $ coverage run --source=contact,bag,checkout,home,products,profiles manage.py test
+- $ coverage html
+- $ python3 -m http.server
+    - Now open the browser and navigate to htmlcov/
+    - Here you will be able to see the full application coverage as an easy-to-read test report
+
 
 ### Manual Testing
 Testing was completed during the building of the site and some final checks at the end of the project.
