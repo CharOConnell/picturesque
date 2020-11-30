@@ -1,32 +1,32 @@
 # Picturesque
 ## Full Stack Frameworks with Django Milestone Project - Code Institute
 ### Table of Contents:
-1. [Project Purpose](#1.-project-purpose)
-2. [User Experience](#2.-user-experience)
+1. [Project Purpose](#project-purpose)
+2. [User Experience](#user-experience)
     - [Strategy](#strategy)
     - [Scope](#scope)
     - [Structure](#structure)
     - [Skeleton](#skeleton)
     - [Surface](#surface)
-3. [Features](#3.-features)
+3. [Features](#features)
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
 4. [Technologies Used](#4.-technologies-used)
-5. [Testing](#5.-testing)
+5. [Testing](#testing)
     - [Automated Testing](#automated-testing)
     - [Manual Testing](#manual-testing)
     - [Validators](#validators)
     - [Screen Sizes](#screen-sizes)
     - [Browser Details](#browser-details)
     - [Bugs Found](#bugs-found)
-6. [Running The App](#6.-running-the-app)
-7. [Deployment Via Heroku](#7.-deployment-via-heroku)
-8. [Credits](#8.-credits)
+6. [Running The App](#running-the-app)
+7. [Deployment Via Heroku](#deployment-via-heroku)
+8. [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
     - [Acknowledgements](#acknowledgements)
 
-## 1. Project Purpose
+## Project Purpose
 Picturesque is an e-commerce website built to sell prints of photographs displayed on the site.
 The prints can be chosen to be in an array of sizes with prices which reflect the change of size.
 The photographs showcased are from my personal holiday collection.
@@ -37,7 +37,7 @@ The user is able to look at a specific photograph in more details before choosin
 There is a user profile page where the user is able to view their order history and can update their saved details.
 Finally, there is a contact page where there are FAQs about the products and a contact form for the users to contact the site owner directly.
 
-## 2. User Experience
+## User Experience
 ### Strategy
 The site user stories are listed below.
 - Navigation and Viewing:
@@ -109,7 +109,7 @@ The information should be easily picked out from the background colour, and the 
 The colour scheme is fairly muted which would appeal hopefully to users of all ages without any abrupt or harsh colours.
 
 
-## 3. Features
+## Features
 - This website is built using Django with added Bootstrap frameworks, CSS, JavaScript where applicable.
 - The functionality of bootstrap classes and the flexible framework it provides allowed for an easily structured webpage.
 - JavaScript and JQuery additions to selected buttons allowed for posting form updates to the backend Python scripts and other page updates.
@@ -127,7 +127,7 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
 - Price selection dropdown menu for the inputting of new products into the database
 - Review functionality for the products from users after purchasing
 
-## 4. Technologies Used
+## Technologies Used
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) 
     - The project uses **HTML5** as a base language for the webpage
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
@@ -152,7 +152,7 @@ The colour scheme is fairly muted which would appeal hopefully to users of all a
     - The project handles payments through **Stripe**
 
 
-## 5. Testing
+## Testing
 ### Automated Testing
 Automated tests are written within test cases within each of the apps. Unfortunately, I ran out of time before the project submission to complete this in full, but there are some tests done throughout the application.
 The apps each have test_views.py, test_models.py and test_forms.py (when applicable for each app).
@@ -170,7 +170,6 @@ To see the coverage in an html report of the entire application, type in the fol
 - $ python3 -m http.server
     - Now open the browser and navigate to htmlcov/
     - Here you will be able to see the full application coverage as an easy-to-read test report
-
 
 ### Manual Testing
 Testing was completed during the building of the site and some final checks at the end of the project.
@@ -233,7 +232,7 @@ Remaining Bugs:
 - The size update to the toast gives the wrong product size when multiple adjustments have been made
 
 
-## 6. Running The App
+## Running The App
 To run this app locally, you will need to clone the existing repository first by doing the following:
 - Navigate to the repository url: https://github.com/CharOConnell/picturesque
 - Click on "Clone or Download"
@@ -252,7 +251,7 @@ To run this app locally, you will need to clone the existing repository first by
 - Now you can run locally by running:
     - $ python3 manage.py runserver
 
-## 7. Deployment Via Heroku
+## Deployment Via Heroku
 The process involved consists of:
 - Running the app locally
 - Adding regularly to the Git branch, committing with comments each time
@@ -279,7 +278,7 @@ In order to push to Heroku from Git:
 - The webpage was then deployed to Heroku
 
 
-## 8. Credits
+## Credits
 ### Content
 All text and descriptions on this website have been written by me.
 
