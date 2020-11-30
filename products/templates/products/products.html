@@ -73,7 +73,7 @@
                                                 </p>
                                             {% endif %}
                                             <!-- If the user is a superuser, allow to edit or delete the product -->
-                                            {% if request.user.is_superuser %}
+                                            {% if request.user.is_staff %}
                                                 <small class="ml-3 text-muted">
                                                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
                                                     <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
