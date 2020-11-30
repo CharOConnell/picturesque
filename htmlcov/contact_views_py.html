@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for contact/views.py: 47%</title>
+    <title>Coverage for contact/views.py: 41%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,13 +17,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>contact/views.py</b> :
-            <span class="pc_cov">47%</span>
+            <span class="pc_cov">41%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
-            15 statements &nbsp;
+            17 statements &nbsp;
             <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">7 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">8 missing</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">10 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -67,28 +67,30 @@
     <p id="t14" class="mis show_mis"><span class="n"><a href="#t14">14</a></span><span class="t">        <span class="nam">email_subject</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">[</span><span class="str">'subject'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t15" class="mis show_mis"><span class="n"><a href="#t15">15</a></span><span class="t">        <span class="nam">email_message</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">[</span><span class="str">'message_content'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">        <span class="com"># Formulate a body string</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t17" class="mis show_mis"><span class="n"><a href="#t17">17</a></span><span class="t">        <span class="nam">body</span> <span class="op">=</span> <span class="str">f'An e-mail from {email_name}: \n {email_message}'</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t19" class="pln"><span class="n"><a href="#t19">19</a></span><span class="t">        <span class="com"># Send an email using Django's send_mail function</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t20" class="mis show_mis"><span class="n"><a href="#t20">20</a></span><span class="t">        <span class="nam">send_mail</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t">            <span class="nam">email_subject</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t">            <span class="nam">body</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t">            <span class="nam">email_address_customer</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t">            <span class="op">[</span><span class="nam">settings</span><span class="op">.</span><span class="nam">DEFAULT_FROM_EMAIL</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t25" class="pln"><span class="n"><a href="#t25">25</a></span><span class="t">        <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t26" class="pln"><span class="n"><a href="#t26">26</a></span><span class="t">        <span class="com"># Let the user know an email has successfully been sent</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t27" class="mis show_mis"><span class="n"><a href="#t27">27</a></span><span class="t">        <span class="nam">messages</span><span class="op">.</span><span class="nam">success</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">f'Thank you {email_name} for your e-mail.'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t28" class="pln"><span class="n"><a href="#t28">28</a></span><span class="t">        <span class="com"># Refresh the page with an empty form</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t29" class="mis show_mis"><span class="n"><a href="#t29">29</a></span><span class="t">        <span class="key">return</span> <span class="nam">redirect</span><span class="op">(</span><span class="nam">reverse</span><span class="op">(</span><span class="str">'contact'</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t">    <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t31" class="pln"><span class="n"><a href="#t31">31</a></span><span class="t">        <span class="com"># No form submission, render the contact page</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t32" class="run"><span class="n"><a href="#t32">32</a></span><span class="t">        <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'contact/contact.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t17" class="mis show_mis"><span class="n"><a href="#t17">17</a></span><span class="t">        <span class="nam">body1</span> <span class="op">=</span> <span class="str">'From Picturesque Prints. \n '</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t18" class="mis show_mis"><span class="n"><a href="#t18">18</a></span><span class="t">        <span class="nam">body2</span> <span class="op">=</span> <span class="str">f'An e-mail from {email_name}: \n {email_message}'</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t19" class="mis show_mis"><span class="n"><a href="#t19">19</a></span><span class="t">        <span class="nam">body</span> <span class="op">=</span> <span class="nam">body1</span> <span class="op">+</span> <span class="nam">body2</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t20" class="pln"><span class="n"><a href="#t20">20</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t">        <span class="com"># Send an email using Django's send_mail function</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t22" class="mis show_mis"><span class="n"><a href="#t22">22</a></span><span class="t">        <span class="nam">send_mail</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t">            <span class="nam">email_subject</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t">            <span class="nam">body</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t25" class="pln"><span class="n"><a href="#t25">25</a></span><span class="t">            <span class="nam">email_address_customer</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t26" class="pln"><span class="n"><a href="#t26">26</a></span><span class="t">            <span class="op">[</span><span class="nam">settings</span><span class="op">.</span><span class="nam">DEFAULT_FROM_EMAIL</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t27" class="pln"><span class="n"><a href="#t27">27</a></span><span class="t">        <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t28" class="pln"><span class="n"><a href="#t28">28</a></span><span class="t">        <span class="com"># Let the user know an email has successfully been sent</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t29" class="mis show_mis"><span class="n"><a href="#t29">29</a></span><span class="t">        <span class="nam">messages</span><span class="op">.</span><span class="nam">success</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">f'Thank you {email_name} for your e-mail.'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t">        <span class="com"># Refresh the page with an empty form</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t31" class="mis show_mis"><span class="n"><a href="#t31">31</a></span><span class="t">        <span class="key">return</span> <span class="nam">redirect</span><span class="op">(</span><span class="nam">reverse</span><span class="op">(</span><span class="str">'contact'</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t32" class="pln"><span class="n"><a href="#t32">32</a></span><span class="t">    <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t33" class="pln"><span class="n"><a href="#t33">33</a></span><span class="t">        <span class="com"># No form submission, render the contact page</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t34" class="run"><span class="n"><a href="#t34">34</a></span><span class="t">        <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'contact/contact.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3</a>,
-            created at 2020-11-29 12:01 +0000
+            created at 2020-11-30 08:14 +0000
         </p>
     </div>
 </div>

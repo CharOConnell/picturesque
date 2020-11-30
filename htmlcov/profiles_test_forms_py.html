@@ -60,15 +60,24 @@
     <p id="t7" class="run"><span class="n"><a href="#t7">7</a></span><span class="t">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">UserProfileForm</span><span class="op">(</span><span class="op">{</span><span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t8" class="run"><span class="n"><a href="#t8">8</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertTrue</span><span class="op">(</span><span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t9" class="pln"><span class="n"><a href="#t9">9</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t10" class="run"><span class="n"><a href="#t10">10</a></span><span class="t">    <span class="key">def</span> <span class="nam">test_required_placeholders_have_asterisks</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t11" class="run"><span class="n"><a href="#t11">11</a></span><span class="t">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">UserProfileForm</span><span class="op">(</span><span class="op">{</span><span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t12" class="run"><span class="n"><a href="#t12">12</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="nam">form</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t10" class="run"><span class="n"><a href="#t10">10</a></span><span class="t">    <span class="key">def</span> <span class="nam">test_fields_are_not_required</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t11" class="run"><span class="n"><a href="#t11">11</a></span><span class="t">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">UserProfileForm</span><span class="op">(</span><span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t12" class="pln"><span class="n"><a href="#t12">12</a></span><span class="t">            <span class="str">'default_full_name'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t13" class="pln"><span class="n"><a href="#t13">13</a></span><span class="t">            <span class="str">'default_email'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t14" class="pln"><span class="n"><a href="#t14">14</a></span><span class="t">            <span class="str">'default_phone_number'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t15" class="pln"><span class="n"><a href="#t15">15</a></span><span class="t">            <span class="str">'default_street_address1'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">            <span class="str">'default_street_address2'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t">            <span class="str">'default_town'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t">            <span class="str">'default_county'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t19" class="pln"><span class="n"><a href="#t19">19</a></span><span class="t">            <span class="str">'default_postcode'</span><span class="op">:</span> <span class="str">''</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t20" class="pln"><span class="n"><a href="#t20">20</a></span><span class="t">            <span class="str">'default_country'</span><span class="op">:</span> <span class="str">''</span><span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t21" class="run"><span class="n"><a href="#t21">21</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertTrue</span><span class="op">(</span><span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3</a>,
-            created at 2020-11-29 17:14 +0000
+            created at 2020-11-30 11:14 +0000
         </p>
     </div>
 </div>

@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for products/views.py: 17%</title>
+    <title>Coverage for products/views.py: 32%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,13 +17,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>products/views.py</b> :
-            <span class="pc_cov">17%</span>
+            <span class="pc_cov">32%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             98 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">17 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">81 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">31 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">67 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -66,14 +66,14 @@
     <p id="t13" class="pln"><span class="n"><a href="#t13">13</a></span><span class="t">    <span class="str">""" A view to show all products,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t14" class="pln"><span class="n"><a href="#t14">14</a></span><span class="t"><span class="str">    including sorting and search queries """</span>&nbsp;</span><span class="r"></span></p>
     <p id="t15" class="pln"><span class="n"><a href="#t15">15</a></span><span class="t">    <span class="com"># Collect all the products</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t16" class="mis show_mis"><span class="n"><a href="#t16">16</a></span><span class="t">    <span class="nam">products</span> <span class="op">=</span> <span class="nam">Product</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t16" class="run"><span class="n"><a href="#t16">16</a></span><span class="t">    <span class="nam">products</span> <span class="op">=</span> <span class="nam">Product</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t">    <span class="com"># Reset any existing categories, sorting, or queries</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t18" class="mis show_mis"><span class="n"><a href="#t18">18</a></span><span class="t">    <span class="nam">query</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t19" class="mis show_mis"><span class="n"><a href="#t19">19</a></span><span class="t">    <span class="nam">categories</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t20" class="mis show_mis"><span class="n"><a href="#t20">20</a></span><span class="t">    <span class="nam">sort</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t21" class="mis show_mis"><span class="n"><a href="#t21">21</a></span><span class="t">    <span class="nam">direction</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t18" class="run"><span class="n"><a href="#t18">18</a></span><span class="t">    <span class="nam">query</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t19" class="run"><span class="n"><a href="#t19">19</a></span><span class="t">    <span class="nam">categories</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t20" class="run"><span class="n"><a href="#t20">20</a></span><span class="t">    <span class="nam">sort</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t21" class="run"><span class="n"><a href="#t21">21</a></span><span class="t">    <span class="nam">direction</span> <span class="op">=</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t23" class="mis show_mis"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">GET</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t23" class="run"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">GET</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t">        <span class="com"># If sort is in the request</span>&nbsp;</span><span class="r"></span></p>
     <p id="t25" class="mis show_mis"><span class="n"><a href="#t25">25</a></span><span class="t">        <span class="key">if</span> <span class="str">'sort'</span> <span class="key">in</span> <span class="nam">request</span><span class="op">.</span><span class="nam">GET</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t26" class="mis show_mis"><span class="n"><a href="#t26">26</a></span><span class="t">            <span class="nam">sortkey</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">GET</span><span class="op">[</span><span class="str">'sort'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
@@ -114,8 +114,8 @@
     <p id="t61" class="mis show_mis"><span class="n"><a href="#t61">61</a></span><span class="t">            <span class="nam">queri</span> <span class="op">=</span> <span class="nam">Q</span><span class="op">(</span><span class="nam">name__icontains</span><span class="op">=</span><span class="nam">query</span><span class="op">)</span> <span class="op">|</span> <span class="nam">Q</span><span class="op">(</span><span class="nam">description__icontains</span><span class="op">=</span><span class="nam">query</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t62" class="mis show_mis"><span class="n"><a href="#t62">62</a></span><span class="t">            <span class="nam">products</span> <span class="op">=</span> <span class="nam">products</span><span class="op">.</span><span class="nam">filter</span><span class="op">(</span><span class="nam">queri</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t63" class="pln"><span class="n"><a href="#t63">63</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t64" class="mis show_mis"><span class="n"><a href="#t64">64</a></span><span class="t">    <span class="nam">current_sorting</span> <span class="op">=</span> <span class="str">f'{sort}_{direction}'</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t65" class="mis show_mis"><span class="n"><a href="#t65">65</a></span><span class="t">    <span class="nam">context</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t64" class="run"><span class="n"><a href="#t64">64</a></span><span class="t">    <span class="nam">current_sorting</span> <span class="op">=</span> <span class="str">f'{sort}_{direction}'</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t65" class="run"><span class="n"><a href="#t65">65</a></span><span class="t">    <span class="nam">context</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p id="t66" class="pln"><span class="n"><a href="#t66">66</a></span><span class="t">        <span class="str">'products'</span><span class="op">:</span> <span class="nam">products</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t67" class="pln"><span class="n"><a href="#t67">67</a></span><span class="t">        <span class="str">'search_term'</span><span class="op">:</span> <span class="nam">query</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t68" class="pln"><span class="n"><a href="#t68">68</a></span><span class="t">        <span class="str">'current_categories'</span><span class="op">:</span> <span class="nam">categories</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
@@ -123,7 +123,7 @@
     <p id="t70" class="pln"><span class="n"><a href="#t70">70</a></span><span class="t">    <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p id="t71" class="pln"><span class="n"><a href="#t71">71</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t72" class="pln"><span class="n"><a href="#t72">72</a></span><span class="t">    <span class="com"># Render the products page</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t73" class="mis show_mis"><span class="n"><a href="#t73">73</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'products/products.html'</span><span class="op">,</span> <span class="nam">context</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t73" class="run"><span class="n"><a href="#t73">73</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'products/products.html'</span><span class="op">,</span> <span class="nam">context</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t74" class="pln"><span class="n"><a href="#t74">74</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t75" class="pln"><span class="n"><a href="#t75">75</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t76" class="run"><span class="n"><a href="#t76">76</a></span><span class="t"><span class="key">def</span> <span class="nam">product_detail</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="nam">product_id</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -142,17 +142,17 @@
     <p id="t89" class="pln"><span class="n"><a href="#t89">89</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t90" class="run"><span class="n"><a href="#t90">90</a></span><span class="t"><span class="key">def</span> <span class="nam">collections</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t91" class="pln"><span class="n"><a href="#t91">91</a></span><span class="t">    <span class="str">""" A view to show the collections page """</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t92" class="mis show_mis"><span class="n"><a href="#t92">92</a></span><span class="t">    <span class="nam">categories</span> <span class="op">=</span> <span class="nam">Category</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t93" class="mis show_mis"><span class="n"><a href="#t93">93</a></span><span class="t">    <span class="nam">all_photo</span> <span class="op">=</span> <span class="str">'P1013936.JPG'</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t92" class="run"><span class="n"><a href="#t92">92</a></span><span class="t">    <span class="nam">categories</span> <span class="op">=</span> <span class="nam">Category</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t93" class="run"><span class="n"><a href="#t93">93</a></span><span class="t">    <span class="nam">all_photo</span> <span class="op">=</span> <span class="str">'P1013936.JPG'</span>&nbsp;</span><span class="r"></span></p>
     <p id="t94" class="pln"><span class="n"><a href="#t94">94</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t95" class="mis show_mis"><span class="n"><a href="#t95">95</a></span><span class="t">    <span class="nam">context</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t95" class="run"><span class="n"><a href="#t95">95</a></span><span class="t">    <span class="nam">context</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p id="t96" class="pln"><span class="n"><a href="#t96">96</a></span><span class="t">        <span class="str">'categories'</span><span class="op">:</span> <span class="nam">categories</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t97" class="pln"><span class="n"><a href="#t97">97</a></span><span class="t">        <span class="str">'all'</span><span class="op">:</span> <span class="nam">all_photo</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t98" class="pln"><span class="n"><a href="#t98">98</a></span><span class="t">    <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t99" class="mis show_mis"><span class="n"><a href="#t99">99</a></span><span class="t">    <span class="nam">template</span> <span class="op">=</span> <span class="str">'products/collections.html'</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t99" class="run"><span class="n"><a href="#t99">99</a></span><span class="t">    <span class="nam">template</span> <span class="op">=</span> <span class="str">'products/collections.html'</span>&nbsp;</span><span class="r"></span></p>
     <p id="t100" class="pln"><span class="n"><a href="#t100">100</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t101" class="pln"><span class="n"><a href="#t101">101</a></span><span class="t">    <span class="com"># Render the collections page</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t102" class="mis show_mis"><span class="n"><a href="#t102">102</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="nam">template</span><span class="op">,</span> <span class="nam">context</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t102" class="run"><span class="n"><a href="#t102">102</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="nam">template</span><span class="op">,</span> <span class="nam">context</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t103" class="pln"><span class="n"><a href="#t103">103</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t104" class="pln"><span class="n"><a href="#t104">104</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t105" class="run"><span class="n"><a href="#t105">105</a></span><span class="t"><span class="op">@</span><span class="nam">login_required</span>&nbsp;</span><span class="r"></span></p>
@@ -254,7 +254,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3</a>,
-            created at 2020-11-29 12:01 +0000
+            created at 2020-11-30 15:25 +0000
         </p>
     </div>
 </div>
